@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>ESP32-CAM Object Tracking</title>
+
+  <link rel="stylesheet" href="../assets/CSS/esp_cam_style.css">
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+
+        <h1>ESP32-CAM Object Tracking</h1>
+
+        <p>
+          Lightweight embedded computer vision system built on the ESP32-CAM using
+          FreeRTOS and custom image processing algorithms to perform object segmentaion.
+        </p>
+
+        <p>
+          Project start: Dec 30, 2025
+        </p>
+
+        <p>
+          Current status: Potential Future Updates
+        </p>
+
+        <div class="tags">
+          <div class="tag">ESP32</div>
+          <div class="tag">Computer Vision</div>
+          <div class="tag">Embedded C</div>
+          <div class="tag">FreeRTOS</div>
+          <div class="tag">Real-Time Processing</div>
+          <div class="tag">WiFi Streaming</div>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="https://github.com/SohumNigam/ELEGOO-ESP32-Camera" class="btn btn-primary">GitHub</a>
+
+          <!-- Optional -->
+          <!--
+          <a href="#" class="btn btn-secondary">Technical Report</a>
+          <a href="#" class="btn btn-secondary">Demo Video</a>
+          -->
+        </div>
+
+      </div>
+
+      <div class="hero-image">
+        <img src="../assets/Images/ESP32_CAM_Hero.jpg" alt="ESP32-CAM Object Tracking">
+      </div>
+
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Project Overview</h2>
+      </div>
+
+      <div class="card">
+
+        <p>
+          This project explores lightweight computer vision techniques on embedded
+          hardware using ESP32-CAM MCU. The system captures grayscale
+          frames from an OV2640 image sensor and processes them directly on-device
+          using custom edge detection and segmentation logic.
+        </p>
+
+        <br>
+
+        <p>
+          The primary objective was to investigate how much real-time image
+          processing could be achieved under strict computational and memory
+          constraints without relying on external analysis and accellerators.
+        </p>
+
+        <div class="placeholder-img">
+          SYSTEM OVERVIEW IMAGE
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SYSTEM ARCHITECTURE -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>System Architecture</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+
+          <h3>Hardware Architecture</h3>
+
+          <p>
+            The system uses an ESP32-CAM module with an OV2640 camera sensor.
+            Frames are captured in grayscale QQVGA format to reduce memory usage
+            and improve processing throughput.
+          </p>
+
+          <br>
+
+          <p>
+            PSRAM is used for frame buffering while internal SRAM is reserved for
+            image processing and task execution.
+          </p>
+
+          <div class="placeholder-img">
+            HARDWARE BLOCK DIAGRAM
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Firmware Architecture</h3>
+
+          <p>
+            The firmware is divided into dedicated FreeRTOS tasks pinned to
+            separate CPU cores. One task continuously acquires camera frames while
+            another performs image processing asynchronously using a queue-based
+            pipeline.
+          </p>
+
+          <br>
+
+          <p>
+            This architecture reduces frame drops and prevents processing latency
+            from blocking image acquisition.
+          </p>
+
+          <div class="placeholder-img">
+            FIRMWARE FLOWCHART
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPUTER VISION -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Computer Vision Pipeline</h2>
+      </div>
+
+      <div class="card">
+
+        <p>
+          The processing pipeline uses lightweight edge-based computer vision
+          algorithms optimized for embedded execution. A Sobel-style gradient
+          approximation is used to estimate horizontal and vertical image edges.
+        </p>
+
+        <br>
+
+        <p>
+          Pixels exceeding a configurable threshold are classified as edges and
+          stored in a binary edge map for further segmentation and object analysis.
+        </p>
+
+        <div class="grid-2">
+
+          <div class="placeholder-img">
+            EDGE DETECTION OUTPUT
+          </div>
+
+          <div class="placeholder-img">
+            OBJECT SEGMENTATION OUTPUT
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REAL TIME DESIGN -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Real-Time Processing</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+
+          <h3>Task Scheduling</h3>
+
+          <p>
+            Image acquisition and image processing execute independently on
+            separate CPU cores using FreeRTOS task pinning and queue-based
+            synchronization.
+          </p>
+
+          <br>
+
+          <p>
+            This design minimizes blocking behavior and improves overall frame
+            handling reliability.
+          </p>
+
+          <div class="placeholder-img">
+            FREERTOS TASK DIAGRAM
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Memory Optimization</h3>
+
+          <p>
+            Several optimizations were required to maintain stable operation under
+            limited RAM conditions, including grayscale-only processing, static
+            memory allocation, low-resolution frame buffers, and PSRAM-backed
+            storage.
+          </p>
+
+          <div class="placeholder-img">
+            MEMORY / BUFFER VISUALIZATION
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WIFI STREAMING -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>WiFi Video Streaming</h2>
+      </div>
+
+      <div class="card">
+
+        <p>
+          A secondary firmware implementation streams live camera frames over WiFi
+          to a PC-hosted web server for remote monitoring and debugging.
+        </p>
+
+        <br>
+
+        <p>
+          This streaming mode was used to visualize intermediate processing stages,
+          test camera performance, and assist with algorithm development.
+        </p>
+
+        <div class="grid-2">
+
+          <div class="placeholder-img">
+            WEB STREAM SCREENSHOT
+          </div>
+
+          <div class="placeholder-img">
+            NETWORK ARCHITECTURE DIAGRAM
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEBUGGING -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Debugging & Development</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+
+          <h3>Edge Detection Tuning</h3>
+
+          <p>
+            Significant tuning was required to achieve reliable edge extraction
+            under changing lighting conditions and low-contrast environments.
+          </p>
+
+          <br>
+
+          <p>
+            Threshold sensitivity and image noise presented major challenges during
+            early testing iterations.
+          </p>
+
+          <div class="placeholder-img">
+            EDGE THRESHOLD COMPARISON
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Object Segmentation</h3>
+
+          <p>
+            Experimental connected-component labeling logic was developed to
+            identify object regions from binary edge maps.
+          </p>
+
+          <br>
+
+          <p>
+            Current work focuses on improving segmentation stability and adding
+            centroid and bounding-box extraction.
+          </p>
+
+          <div class="placeholder-img">
+            OBJECT LABELING DEBUG OUTPUT
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Performance & Testing</h2>
+      </div>
+
+      <div class="card">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Image Resolution</td>
+              <td>160 x 120 (QQVGA)</td>
+            </tr>
+
+            <tr>
+              <td>Pixel Format</td>
+              <td>Grayscale</td>
+            </tr>
+
+            <tr>
+              <td>Processing Method</td>
+              <td>Edge-Based Segmentation</td>
+            </tr>
+
+            <tr>
+              <td>RTOS</td>
+              <td>FreeRTOS</td>
+            </tr>
+
+            <tr>
+              <td>Streaming Support</td>
+              <td>WiFi Web Streaming</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Project Gallery</h2>
+      </div>
+
+      <div class="grid-3 gallery">
+
+        <img src="images/gallery1.jpg" alt="">
+        <img src="images/gallery2.jpg" alt="">
+        <img src="images/gallery3.jpg" alt="">
+        <img src="images/gallery4.jpg" alt="">
+        <img src="images/gallery5.jpg" alt="">
+        <img src="images/gallery6.jpg" alt="">
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FUTURE WORK -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Future Improvements</h2>
+      </div>
+
+      <div class="card">
+
+        <ul class="future-list">
+
+          <li>Connected-component flood fill segmentation</li>
+          <li>Centroid and bounding-box extraction</li>
+          <li>Multi-object tracking</li>
+          <li>Adaptive thresholding</li>
+          <li>Motion prediction and tracking filters</li>
+          <li>Higher frame-rate optimizations</li>
+          <li>Remote parameter tuning interface</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Resources</h2>
+      </div>
+
+      <div class="card">
+
+        <div class="resource-links">
+
+          <a href="#">GitHub Repository</a>
+          <a href="#">Firmware Source</a>
+          <a href="#">Technical Documentation</a>
+          <a href="#">Streaming Server Code</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      Experimental embedded computer vision project developed for educational and
+      research purposes.
+    </p>
+
+  </footer>
+
+</body>
+</html>

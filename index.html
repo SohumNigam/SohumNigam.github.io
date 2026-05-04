@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Engineering Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --bg: #0a0f1a;
+
+      --panel: #121a2b;
+      --panel-2: #182235;
+
+      --text: #edf3ff;
+      --muted: #94a0b8;
+
+      --accent: #59b7ff;
+      --accent-2: #7b61ff;
+
+      --border: #24324d;
+
+      --glow: rgba(89, 183, 255, 0.18);
+
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(89, 183, 255, 0.08),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at bottom right,
+          rgba(123, 97, 255, 0.08),
+          transparent 35%
+        ),
+
+        var(--bg);
+
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+    }
+
+    /* NAV */
+
+    nav {
+      position: sticky;
+      top: 0;
+
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+
+      padding: 18px 24px;
+
+      background: rgba(10, 15, 26, 0.72);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+
+      z-index: 999;
+    }
+
+    nav a {
+      position: relative;
+
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+
+      color: var(--muted);
+
+      transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    nav a::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+
+      width: 100%;
+      height: 2px;
+
+      background: linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent-2)
+      );
+
+      transform: scaleX(0);
+      transform-origin: left;
+
+      transition: transform 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 82vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 120px 24px 100px;
+
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(10, 15, 26, 0.7)
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      display: inline-block;
+
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+
+      color: var(--accent);
+
+      padding: 8px 14px;
+
+      border: 1px solid rgba(89, 183, 255, 0.2);
+
+      border-radius: 999px;
+
+      margin-bottom: 28px;
+
+      background: rgba(89, 183, 255, 0.05);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+
+      line-height: 0.95;
+
+      letter-spacing: -3px;
+
+      margin-bottom: 26px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent-2)
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 760px;
+
+      margin: auto;
+
+      color: var(--muted);
+
+      font-size: 1.1rem;
+    }
+
+    /* GENERAL SECTION */
+
+    section {
+      width: min(1180px, 92%);
+      margin: auto;
+
+      padding: 110px 0;
+
+      opacity: 0;
+      transform: translateY(30px);
+
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+
+      color: var(--accent);
+
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+
+      letter-spacing: -1px;
+    }
+
+    /* GRID */
+
+    .grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+      gap: 26px;
+    }
+
+    /* CARD */
+
+    .card {
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: var(--radius);
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--panel),
+          var(--panel-2)
+        );
+
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+
+      border-color: rgba(89, 183, 255, 0.45);
+
+      box-shadow:
+        0 0 30px var(--glow),
+        0 20px 50px rgba(0,0,0,0.45);
+    }
+
+    .card-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-image::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(10, 15, 26, 0.9),
+          transparent 55%
+        );
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+
+      object-fit: cover;
+
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .card-content h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .card-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+
+      color: var(--accent);
+
+      background: rgba(89, 183, 255, 0.08);
+
+      border: 1px solid rgba(89, 183, 255, 0.15);
+
+      padding: 8px 12px;
+
+      border-radius: 999px;
+    }
+
+    /* PANELS */
+
+    .panel {
+      background:
+        linear-gradient(
+          145deg,
+          var(--panel),
+          var(--panel-2)
+        );
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      padding: 28px;
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .panel:hover {
+      transform: translateY(-4px);
+
+      border-color: rgba(89, 183, 255, 0.25);
+    }
+
+    .panel h3 {
+      margin-bottom: 14px;
+      font-size: 1.2rem;
+    }
+
+    .panel p {
+      color: var(--muted);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .skill {
+      padding: 10px 14px;
+
+      border-radius: 999px;
+
+      background: rgba(123, 97, 255, 0.08);
+
+      border: 1px solid rgba(123, 97, 255, 0.18);
+
+      color: #cfc8ff;
+
+      font-size: 13px;
+
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+
+      margin-top: 30px;
+    }
+
+    .contact-links a {
+      padding: 14px 20px;
+
+      border-radius: 14px;
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--panel),
+          var(--panel-2)
+        );
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .contact-links a:hover {
+      transform: translateY(-3px);
+
+      border-color: var(--accent);
+
+      box-shadow: 0 0 20px var(--glow);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 50px 24px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .card img {
+        height: 210px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+
+  <section id="home" class="hero show">
+
+    <div class="hero-content">
+
+      <div class="hero-tag">
+        EMBEDDED SYSTEMS · ROBOTICS · COMPUTER VISION
+      </div>
+
+      <h1>
+        Engineering <span>Portfolio</span>
+      </h1>
+
+      <p>
+        Embedded systems, robotics, and computer vision engineer
+        focused on real-time systems, control architecture,
+        and applied hardware design.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="section-header">
+      <div class="section-label">FEATURED WORK</div>
+      <h2>Projects</h2>
+    </div>
+
+    <div class="grid">
+
+      <a class="card" href="projects/esp32-cam.html">
+
+        <div class="card-image">
+          <img src="assets/Images/ESP32_CAM_Hero.jpg" alt="ESP32-CAM">
+        </div>
+
+        <div class="card-content">
+          <h3>ESP32-CAM Object Tracking</h3>
+
+          <p>
+            Embedded computer vision pipeline for
+            real-time object detection and tracking.
+          </p>
+
+          <div class="tag">
+            ESP32 · CV · Embedded Systems
+          </div>
+        </div>
+
+      </a>
+
+      <a class="card" href="projects/singlaxs.html">
+
+        <div class="card-image">
+          <img src="https://via.placeholder.com/800x500" alt="SinglAXS">
+        </div>
+
+        <div class="card-content">
+          <h3>SinglAXS Robotics System</h3>
+
+          <p>
+            Four-legged robotic platform exploring
+            gait stability and servo coordination.
+          </p>
+
+          <div class="tag">
+            Robotics · Control · Mechanics
+          </div>
+        </div>
+
+      </a>
+
+      <a class="card" href="projects/stm32-tens.html">
+
+        <div class="card-image">
+          <img src="https://via.placeholder.com/800x500" alt="STM32 TENS">
+        </div>
+
+        <div class="card-content">
+          <h3>STM32 TENS Device</h3>
+
+          <p>
+            Biomedical stimulation platform with
+            waveform control and safety feedback.
+          </p>
+
+          <div class="tag">
+            STM32 · Biomedical · Signal Processing
+          </div>
+        </div>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- RESEARCH -->
+
+  <section id="research">
+
+    <div class="section-header">
+      <div class="section-label">EXPLORATION</div>
+      <h2>Research</h2>
+    </div>
+
+    <div class="stack">
+
+      <div class="panel">
+        <h3>Academic Research</h3>
+
+        <p>
+          Research focused on stimulation stabilization,
+          bioelectrical interfaces, and embedded control systems.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Independent Research</h3>
+
+        <p>
+          Exploration of computer vision optimization,
+          robotic locomotion systems, and real-time sensing.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="section-header">
+      <div class="section-label">BACKGROUND</div>
+      <h2>About</h2>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="panel">
+
+        <p>
+          Embedded systems engineer focused on robotics,
+          real-time control systems, computer vision,
+          and hardware-software integration.
+        </p>
+
+        <div class="skills">
+
+          <div class="skill">C++</div>
+          <div class="skill">Python</div>
+          <div class="skill">STM32</div>
+          <div class="skill">ESP32</div>
+          <div class="skill">OpenCV</div>
+          <div class="skill">PCB Design</div>
+          <div class="skill">Control Systems</div>
+
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <h3>Focus Areas</h3>
+
+        <p>
+          • Embedded firmware<br>
+          • Robotics systems<br>
+          • Computer vision<br>
+          • Biomedical electronics<br>
+          • Real-time processing<br>
+          • Hardware prototyping
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <div class="section-header">
+      <div class="section-label">CONNECT</div>
+      <h2>Contact</h2>
+    </div>
+
+    <div class="contact-links">
+
+      <a href="mailto:sohum.arjit.nigam@gmail.com">
+        Email
+      </a>
+
+      <a href="#">
+        GitHub
+      </a>
+
+      <a href="#">
+        LinkedIn
+      </a>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Engineering Portfolio
+  </footer>
+
+  <script>
+
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+
+      });
+
+    }, {
+      threshold: 0.15
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+  </script>
+
+</body>
+</html>
