@@ -278,29 +278,38 @@
     <p>Sohum Nigam · Engineering Portfolio · 2026</p>
   </footer>
 
-  <script>
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
 
-          // Highlight matching nav link
-          const id = entry.target.getAttribute("id");
-          navLinks.forEach(link => {
-            link.classList.remove("nav-active");
-            if (link.getAttribute("href") === `#${id}`) {
-              link.classList.add("nav-active");
-            }
-          });
-        }
-      });
-    }, { threshold: 0.6 });
+        entry.target.classList.add("show");
 
-    sections.forEach(section => observer.observe(section));
-  </script>
+        // Highlight matching nav link
+        const id = entry.target.getAttribute("id");
+
+        navLinks.forEach(link => {
+          link.classList.remove("nav-active");
+
+          if (link.getAttribute("href") === `#${id}`) {
+            link.classList.add("nav-active");
+          }
+        });
+
+        // Stop observing once shown
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: "0px 0px -10% 0px"
+  });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
