@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>TENS Unit Project</title>
 
-
-
-  <!-- External CSS File -->
   <link rel="stylesheet" href="../assets/CSS/stm_tens_style.css">
 </head>
 
 <body>
 
-
   <nav class="project-nav">
-  <a href="../index.html">← Home</a>
-  <a href="../index.html#projects">Projects</a>
-  <span class="divider">|</span>
-  <span class="title">Closed-Loop TENS Unit</span>
+    <a href="../index.html">← Home</a>
+    <a href="../index.html#projects">Projects</a>
+    <span class="divider">|</span>
+    <span class="title">Closed-Loop TENS Unit</span>
   </nav>
 
   <!-- HERO -->
@@ -29,20 +24,15 @@
       <div class="hero-text">
         <h1>Closed-Loop TENS Unit</h1>
 
-        
         <p>
-            Placeholder summary text describing the project,
-            system goals, and major engineering challenges.
-        </p>
-        
-        <p>
-          Project start: Feb 5, 2026
+          This project implements a feedback control system for TENS stimulation to reduce variability
+          caused by the skin-electrode interface. The system is currently in active development and
+          experimental validation.
         </p>
 
-        <p>
-          Project end: TBD
-        </p>
-        
+        <p><strong>Project start:</strong> Feb 5, 2026</p>
+        <p><strong>Status:</strong>UNDER DEVELOPMENT</p>
+
         <div class="tags">
           <div class="tag">STM32</div>
           <div class="tag">Embedded C</div>
@@ -50,19 +40,19 @@
           <div class="tag">Analog Electronics</div>
           <div class="tag">Feedback Control</div>
         </div>
-        
-        
+
         <div class="hero-buttons">
-            <a href="https://github.com/SohumNigam/STM_TENS" class="btn btn-primary">GitHub</a>
-            <!--
-            <a href="#" class="btn btn-secondary">PCB Files</a>
-            <a href="#" class="btn btn-secondary">Technical Report</a>
-            -->
+          <a href="https://github.com/SohumNigam/STM_TENS" class="btn btn-primary">GitHub Repository</a>
+          <a href="../assets/Documents/STM_TENS_research_proposal.pdf" class="btn btn-secondary">Research Proposal</a>
+
         </div>
       </div>
 
+      <!-- Minimal visual placeholder instead of real image -->
       <div class="hero-image">
-        <img src="https://via.placeholder.com/700x450" alt="Project Hero Image">
+        <div class="placeholder-img">
+          Images coming soon!<br/>
+        </div>
       </div>
 
     </div>
@@ -78,12 +68,13 @@
 
       <div class="card">
         <p>
-          Placeholder text explaining the engineering problem,
-          project objectives, and overall design philosophy.
+          Transcutaneous electrical nerve stimulation (TENS) suffers from variability due to
+          skin-electrode impedance changes. This project investigates a closed-loop approach
+          using real-time feedback to stabilize stimulation output.
         </p>
 
         <div class="placeholder-img">
-          SYSTEM OVERVIEW IMAGE
+          Images coming soon!
         </div>
       </div>
 
@@ -101,28 +92,26 @@
       <div class="grid-2">
 
         <div class="card">
-          <h3>Hardware</h3>
-
+          <h3>Hardware (In Progress)</h3>
           <p>
-            Placeholder description for hardware architecture,
-            sensing circuitry, PCB layout, and power stage.
+            PCB design includes stimulation driver stage, sensing circuit, and STM32 control unit.
+            Final schematic and layout diagrams will be added once revisions are complete.
           </p>
 
           <div class="placeholder-img">
-            HARDWARE BLOCK DIAGRAM
+            Images coming soon!
           </div>
         </div>
 
         <div class="card">
-          <h3>Firmware</h3>
-
+          <h3>Firmware (In Progress)</h3>
           <p>
-            Placeholder description for waveform generation,
-            DMA acquisition, timers, and feedback control.
+            Firmware handles waveform generation, ADC sampling, and feedback regulation loop.
+            Control algorithm is currently being tuned.
           </p>
 
           <div class="placeholder-img">
-            FIRMWARE FLOWCHART
+            Images coming soon!
           </div>
         </div>
 
@@ -140,22 +129,13 @@
       </div>
 
       <div class="card">
-
         <p>
-          Placeholder explanation of routing decisions,
-          analog design considerations, and grounding strategy.
+          PCB layout is still under revision. Key focus areas include analog grounding,
+          noise isolation, and safe current-limited output design.
         </p>
 
-        <div class="grid-2">
-
-          <div class="placeholder-img">
-            PCB TOP RENDER
-          </div>
-
-          <div class="placeholder-img">
-            PCB BOTTOM RENDER
-          </div>
-
+        <div class="placeholder-img">
+          Images coming soon!
         </div>
 
       </div>
@@ -171,34 +151,15 @@
         <h2>Debugging & Iteration</h2>
       </div>
 
-      <div class="grid-2">
+      <div class="card">
+        <p>
+          This section will document design challenges and fixes as the system is tested.
+          Currently no finalized debugging case studies are available.
+        </p>
 
-        <div class="card">
-          <h3>ADC Saturation Issue</h3>
-
-          <p>
-            Placeholder debugging explanation describing
-            root cause analysis and implemented fix.
-          </p>
-
-          <div class="placeholder-img">
-            OSCILLOSCOPE CAPTURE
-          </div>
+        <div class="placeholder-img">
+          Images coming soon!
         </div>
-
-        <div class="card">
-          <h3>Control Stability</h3>
-
-          <p>
-            Placeholder text discussing regulation behavior,
-            instability issues, and firmware improvements.
-          </p>
-
-          <div class="placeholder-img">
-            TESTING SETUP IMAGE
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -214,28 +175,30 @@
 
       <div class="card">
 
+        <p><strong>Testing phase not yet complete.</strong></p>
+
         <table>
           <thead>
             <tr>
               <th>Test</th>
-              <th>Result</th>
+              <th>Status</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
               <td>Current Stability</td>
-              <td>Placeholder</td>
+              <td>Planned</td>
             </tr>
 
             <tr>
               <td>ADC Sampling Rate</td>
-              <td>Placeholder</td>
+              <td>In Progress</td>
             </tr>
 
             <tr>
-              <td>Output Frequency Range</td>
-              <td>Placeholder</td>
+              <td>Closed-loop Regulation</td>
+              <td>In Development</td>
             </tr>
           </tbody>
         </table>
@@ -245,7 +208,7 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- GALLERY (MINIMAL) -->
   <section>
     <div class="container">
 
@@ -253,15 +216,12 @@
         <h2>Project Gallery</h2>
       </div>
 
-      <div class="grid-3 gallery">
+      <div class="card">
+        <p>Gallery will be populated as hardware testing progresses.</p>
 
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-
+        <div class="placeholder-img">
+          Images coming soon!
+        </div>
       </div>
 
     </div>
@@ -278,10 +238,11 @@
       <div class="card">
 
         <div class="resource-links">
-          <a href="#">GitHub Repository</a>
-          <a href="#">KiCad Files</a>
-          <a href="#">Gerber Files</a>
-          <a href="#">Technical Documentation</a>
+          <a href="https://github.com/SohumNigam/STM_TENS">GitHub Repository</a>
+          <a href="../assets/Documents/STM_TENS_research_proposal.pdf">Research Proposal</a>
+          <span>Technical Documentation (In Progress)</span>
+          <span>KiCad Files (Not Released Yet)</span>
+          <span>Gerber Files (Not Generated Yet)</span>
         </div>
 
       </div>

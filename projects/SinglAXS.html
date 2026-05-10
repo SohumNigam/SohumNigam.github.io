@@ -1,71 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>SinglAXS</title>
 
-
-
-  <!-- External CSS File -->
-  <link rel="stylesheet" href="../assets/CSS/stm_tens_style.css">
+  <link rel="stylesheet" href="../assets/CSS/SinglAXS_style.css">
 </head>
 
 <body>
 
-
+  <!-- NAV -->
   <nav class="project-nav">
-  <a href="../index.html">← Home</a>
-  <a href="../index.html#projects">Projects</a>
-  <span class="divider">|</span>
-  <span class="title">Closed-Loop TENS Unit</span>
+
+    <a href="../index.html">← Home</a>
+    <a href="../index.html#projects">Projects</a>
+
+    <span class="divider">|</span>
+
+    <span class="title">SinglAXS</span>
+
   </nav>
 
   <!-- HERO -->
   <header class="hero">
+
     <div class="container hero-content">
 
       <div class="hero-text">
-        <h1>SinglAXS Quadraped</h1>
 
-        
-        <p>
-            Placeholder summary text describing the project,
-            system goals, and major engineering challenges.
+        <h1>SinglAXS Quadruped</h1>
+
+        <p class="hero-subtitle">
+          Experimental 1-DOF quadruped robot exploring gait generation,
+          locomotion stability, and minimal-actuation walking systems.
         </p>
-        
+
         <p>
+          SinglAXS was built to investigate how much walking functionality
+          could be achieved using an intentionally constrained mechanical design.
+          Instead of relying on complex inverse kinematics and multi-axis legs,
+          the platform used a single rotational axis per leg with direct-drive SG90 servos.
+        </p>
+
+        <p class="project-date">
           Summer 2025
         </p>
-        
+
         <div class="tags">
-          <div class="tag">ESP32</div>
+
+          <div class="tag">ESP32-WROVER</div>
           <div class="tag">Embedded C</div>
-          <div class="tag">PCB Design</div>
+          <div class="tag">FreeRTOS</div>
           <div class="tag">Robotics</div>
           <div class="tag">Gait Design</div>
+          <div class="tag">3D Printing</div>
+
         </div>
-        
-        
+
         <div class="hero-buttons">
-            <a href="https://github.com/SohumNigam/SinglAXS" class="btn btn-primary">GitHub</a>
-            <!--
-            <a href="#" class="btn btn-secondary">PCB Files</a>
-            <a href="#" class="btn btn-secondary">Technical Report</a>
-            -->
+
+          <a
+            href="https://github.com/SohumNigam/SinglAXS"
+            class="btn btn-primary">
+
+            GitHub Repository
+
+          </a>
+
         </div>
+
       </div>
 
       <div class="hero-image">
-        <img src="../assets/Images/SinglAXS_Hero.png" alt="Project Hero Image">
+
+        <!-- ONE STRONG HERO IMAGE -->
+        <img
+          src="../assets/Images/SinglAXS_Hero.png"
+          alt="SinglAXS quadruped robot">
+
       </div>
 
     </div>
+
   </header>
 
   <!-- OVERVIEW -->
   <section>
+
     <div class="container">
 
       <div class="section-title">
@@ -73,21 +97,80 @@
       </div>
 
       <div class="card">
+
         <p>
-          Placeholder text explaining the engineering problem,
-          project objectives, and overall design philosophy.
+          Traditional quadruped robots commonly use multiple degrees of freedom
+          per leg alongside advanced motion planning systems. SinglAXS intentionally
+          reduced this complexity to explore how stable walking behavior could emerge
+          from a highly constrained platform.
         </p>
 
-        <div class="placeholder-img">
-          SYSTEM OVERVIEW IMAGE
-        </div>
+        <p>
+          The robot used four SG90 servos, a lightweight 3D printed frame,
+          and an ESP32-WROVER microcontroller running FreeRTOS-based gait logic.
+          The project focused primarily on gait experimentation, synchronization,
+          and mechanical iteration rather than creating a polished final product.
+        </p>
+
       </div>
 
     </div>
+
+  </section>
+
+  <!-- DESIGN GOALS -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Design Goals</h2>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="card">
+
+          <h3>Minimal Actuation</h3>
+
+          <p>
+            Each leg used only a single rotational axis to simplify control
+            logic and reduce overall mechanical complexity.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Compact Architecture</h3>
+
+          <p>
+            The frame was optimized around lightweight 3D printed parts
+            and direct-drive SG90 servos.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Gait Experimentation</h3>
+
+          <p>
+            The project emphasized timing, phase relationships,
+            and locomotion stability testing.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
   <!-- SYSTEM ARCHITECTURE -->
   <section>
+
     <div class="container">
 
       <div class="section-title">
@@ -97,70 +180,167 @@
       <div class="grid-2">
 
         <div class="card">
+
           <h3>Hardware</h3>
 
           <p>
-            Placeholder description for hardware architecture,
-            sensing circuitry, PCB layout, and power stage.
+            The robot used a lightweight embedded system architecture
+            designed around low cost and rapid iteration.
           </p>
 
-          <div class="placeholder-img">
-            HARDWARE BLOCK DIAGRAM
-          </div>
+          <ul>
+
+            <li>ESP32-WROVER Microcontroller</li>
+            <li>4x SG90 Servo Motors</li>
+            <li>MPU6050 IMU</li>
+            <li>3D Printed Chassis</li>
+            <li>Direct-drive leg mechanism</li>
+
+          </ul>
+
         </div>
 
         <div class="card">
+
           <h3>Firmware</h3>
 
           <p>
-            Placeholder description for waveform generation,
-            DMA acquisition, timers, and feedback control.
+            Motion sequencing and gait timing were implemented using FreeRTOS.
+            Different gait patterns were tested by modifying timing offsets,
+            servo synchronization, and stepping sequences.
           </p>
 
-          <div class="placeholder-img">
-            FIRMWARE FLOWCHART
-          </div>
+          <p>
+            The firmware architecture prioritized modular gait testing
+            and rapid iteration over advanced autonomy features.
+          </p>
+
         </div>
 
       </div>
 
     </div>
+
   </section>
 
-  <!-- PCB DESIGN -->
+  <!-- MECHANICAL DESIGN -->
   <section>
+
     <div class="container">
 
       <div class="section-title">
-        <h2>PCB Design</h2>
+        <h2>Mechanical Design</h2>
       </div>
 
       <div class="card">
 
         <p>
-          Placeholder explanation of routing decisions,
-          analog design considerations, and grounding strategy.
+          The mechanical structure was designed around the limitations
+          of SG90 servos and single-axis leg movement. Emphasis was placed
+          on keeping the frame lightweight while maintaining enough rigidity
+          for repeatable gait experiments.
         </p>
 
-        <div class="grid-2">
+        <p>
+          Several iterations explored changes to body geometry,
+          leg spacing, and mass placement to improve
+          walking stability.
+        </p>
 
-          <div class="placeholder-img">
-            PCB TOP RENDER
-          </div>
+        <!-- OPTIONAL SINGLE CAD IMAGE -->
+        <img
+          class="project-image cad"
+          src="../assets/Images/SinglAXS_CAD.png"
+          alt="SinglAXS CAD render">
 
-          <div class="placeholder-img">
-            PCB BOTTOM RENDER
-          </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GAIT DEVELOPMENT -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Gait Development</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+
+          <h3>Crawl Gait</h3>
+
+          <p>
+            Crawl-style gait patterns prioritized stability and continuous
+            ground contact. These tests were useful for evaluating balance
+            and servo synchronization under slower movement conditions.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Trot Experiments</h3>
+
+          <p>
+            Faster trot-inspired stepping sequences improved forward speed
+            but introduced stability challenges due to the robot's limited
+            mechanical degrees of freedom.
+          </p>
 
         </div>
 
       </div>
 
     </div>
+
   </section>
+
+  <!-- WEBSITE INTERFACE -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Website Interface</h2>
+      </div>
+
+      <div class="card">
+
+        <h3>Control & Monitoring Interface</h3>
+
+        <p>
+          A lightweight browser-based interface was developed to assist
+          with testing and system interaction during development.
+          The interface was not only used for rapid iteration, gait tuning,
+          and debugging during walking experiments, but also allowed for manual control of the robot.
+        </p>
+
+        <p>
+          The UI prioritized simplicity and responsiveness,
+          allowing adjustments to movement behavior without repeatedly
+          modifying firmware parameters directly in code.
+        </p>
+
+        <img
+          class="project-image interface"
+          src="../assets/Images/SinglAXS_Interface.png"
+          alt="SinglAXS control interface screenshot">
+
+      </div>
+
+    </div>
+
+  </section>
+   
 
   <!-- DEBUGGING -->
   <section>
+
     <div class="container">
 
       <div class="section-title">
@@ -170,38 +350,46 @@
       <div class="grid-2">
 
         <div class="card">
-          <h3>ADC Saturation Issue</h3>
+
+          <h3>Servo Jitter</h3>
 
           <p>
-            Placeholder debugging explanation describing
-            root cause analysis and implemented fix.
+            One of the primary technical challenges involved servo jitter
+            and timing inconsistencies during synchronized movement.
           </p>
 
-          <div class="placeholder-img">
-            OSCILLOSCOPE CAPTURE
-          </div>
+          <p>
+            Multiple firmware revisions explored different update strategies
+            and gait timing approaches to reduce instability.
+          </p>
+
         </div>
 
         <div class="card">
-          <h3>Control Stability</h3>
+
+          <h3>Mechanical Revisions</h3>
 
           <p>
-            Placeholder text discussing regulation behavior,
-            instability issues, and firmware improvements.
+            Iterative modifications in leg design were used to analyze the optimal geometry for stability, traction, and weight.
           </p>
 
-          <div class="placeholder-img">
-            TESTING SETUP IMAGE
-          </div>
+          <!-- OPTIONAL REAL PHOTO -->
+          <img
+            class="project-image"
+            src="../assets/Images/SinglAXS_Leg.png"
+            alt="SinglAXS prototype revision">
+
         </div>
 
       </div>
 
     </div>
+
   </section>
 
   <!-- TESTING -->
   <section>
+
     <div class="container">
 
       <div class="section-title">
@@ -211,60 +399,88 @@
       <div class="card">
 
         <table>
+
           <thead>
+
             <tr>
-              <th>Test</th>
+
+              <th>Metric</th>
               <th>Result</th>
+
             </tr>
+
           </thead>
 
           <tbody>
+
             <tr>
-              <td>Current Stability</td>
-              <td>Placeholder</td>
+
+              <td>Total Weight</td>
+              <td>&lt; 120 g</td>
+
             </tr>
 
             <tr>
-              <td>ADC Sampling Rate</td>
-              <td>Placeholder</td>
+
+              <td>Walking Speed</td>
+              <td>3–5 cm/s</td>
+
             </tr>
 
             <tr>
-              <td>Output Frequency Range</td>
-              <td>Placeholder</td>
+
+              <td>Control System</td>
+              <td>ESP32 + FreeRTOS</td>
+
             </tr>
+
+            <tr>
+
+              <td>Tested Gaits</td>
+              <td>Crawl and Trot</td>
+
+            </tr>
+
           </tbody>
+
         </table>
 
       </div>
 
     </div>
+
   </section>
 
-  <!-- GALLERY -->
+  <!-- PROJECT MEDIA -->
   <section>
+
     <div class="container">
 
       <div class="section-title">
-        <h2>Project Gallery</h2>
+        <h2>Project Media</h2>
       </div>
 
-      <div class="grid-3 gallery">
+      <div class="grid-2 gallery">
 
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
-        <img src="https://via.placeholder.com/400x300" alt="">
+        <!-- ONLY 2-4 REAL PHOTOS NEEDED -->
+
+        <img
+          src="../assets/Images/SinglAXS_Walking.png"
+          alt="Walking test">
+
+        <img
+          src="../assets/Images/SinglAXS_Desk.jpg"
+          alt="Workbench prototype">
 
       </div>
 
     </div>
+
   </section>
 
   <!-- RESOURCES -->
   <section>
+
     <div class="container">
 
       <div class="section-title">
@@ -274,23 +490,26 @@
       <div class="card">
 
         <div class="resource-links">
-          <a href="#">GitHub Repository</a>
-          <a href="#">KiCad Files</a>
-          <a href="#">Gerber Files</a>
-          <a href="#">Technical Documentation</a>
+
+          <a href="https://github.com/SohumNigam/SinglAXS">
+            GitHub Repository
+          </a>
+
         </div>
 
       </div>
 
     </div>
+
   </section>
 
   <!-- FOOTER -->
   <footer>
+
     <p>
-      Prototype developed for research and educational purposes only.
-      Not intended for clinical or medical use.
+      SinglAXS — Experimental Minimal-DOF Quadruped Platform
     </p>
+
   </footer>
 
 </body>

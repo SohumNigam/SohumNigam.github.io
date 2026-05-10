@@ -11,6 +11,14 @@
 
 <body>
 
+  <!-- NAV -->
+  <nav class="project-nav">
+    <a href="../index.html">← Home</a>
+    <a href="../index.html#projects">Projects</a>
+    <span class="divider">|</span>
+    <span class="title">ESP32-CAM Object Tracking</span>
+  </nav>
+
   <!-- HERO -->
   <header class="hero">
     <div class="container hero-content">
@@ -20,17 +28,12 @@
         <h1>ESP32-CAM Object Tracking</h1>
 
         <p>
-          Lightweight embedded computer vision system built on the ESP32-CAM using
-          FreeRTOS and custom image processing algorithms to perform object segmentaion.
+          Lightweight embedded computer vision system built on ESP32-CAM using
+          FreeRTOS and custom image processing for object segmentation.
         </p>
 
-        <p>
-          Project start: Dec 30, 2025
-        </p>
-
-        <p>
-          Current status: Potential Future Updates
-        </p>
+        <p>Project start: Dec 30, 2025</p>
+        <p>Status: Potential Future Updates</p>
 
         <div class="tags">
           <div class="tag">ESP32</div>
@@ -43,16 +46,11 @@
 
         <div class="hero-buttons">
           <a href="https://github.com/SohumNigam/ELEGOO-ESP32-Camera" class="btn btn-primary">GitHub</a>
-
-          <!-- Optional -->
-          <!--
-          <a href="#" class="btn btn-secondary">Technical Report</a>
-          <a href="#" class="btn btn-secondary">Demo Video</a>
-          -->
         </div>
 
       </div>
 
+      <!-- OPTIONAL: keep only if you really want hero image -->
       <div class="hero-image">
         <img src="../assets/Images/ESP32_CAM_Hero.jpg" alt="ESP32-CAM Object Tracking">
       </div>
@@ -71,23 +69,18 @@
       <div class="card">
 
         <p>
-          This project explores lightweight computer vision techniques on embedded
-          hardware using ESP32-CAM MCU. The system captures grayscale
-          frames from an OV2640 image sensor and processes them directly on-device
-          using custom edge detection and segmentation logic.
+          This project explores lightweight computer vision on ESP32-CAM MCU.
+          Frames are processed directly on-device using edge detection and segmentation.
         </p>
-
-        <br>
 
         <p>
-          The primary objective was to investigate how much real-time image
-          processing could be achieved under strict computational and memory
-          constraints without relying on external analysis and accellerators.
+          The goal was to evaluate real-time image processing under strict memory and compute constraints.
         </p>
 
-        <div class="placeholder-img">
-          SYSTEM OVERVIEW IMAGE
-        </div>
+        <!-- Optional single photo ONLY if useful -->
+        <!--
+        <p><em>Optional: add a single annotated photo of setup if needed</em></p>
+        -->
 
       </div>
 
@@ -106,48 +99,33 @@
 
         <div class="card">
 
-          <h3>Hardware Architecture</h3>
+          <h3>Hardware</h3>
 
           <p>
-            The system uses an ESP32-CAM module with an OV2640 camera sensor.
-            Frames are captured in grayscale QQVGA format to reduce memory usage
-            and improve processing throughput.
+            ESP32-CAM with OV2640 sensor. Frames captured in grayscale QQVGA for efficiency.
           </p>
-
-          <br>
 
           <p>
-            PSRAM is used for frame buffering while internal SRAM is reserved for
-            image processing and task execution.
+            PSRAM used for buffering while SRAM handles processing tasks.
           </p>
 
-          <div class="placeholder-img">
-            HARDWARE BLOCK DIAGRAM
-          </div>
+          <!-- removed diagram -->
 
         </div>
 
         <div class="card">
 
-          <h3>Firmware Architecture</h3>
+          <h3>Firmware</h3>
 
           <p>
-            The firmware is divided into dedicated FreeRTOS tasks pinned to
-            separate CPU cores. One task continuously acquires camera frames while
-            another performs image processing asynchronously using a queue-based
-            pipeline.
+            FreeRTOS tasks are split between image capture and processing using queues.
           </p>
-
-          <br>
 
           <p>
-            This architecture reduces frame drops and prevents processing latency
-            from blocking image acquisition.
+            This prevents blocking and improves frame consistency.
           </p>
 
-          <div class="placeholder-img">
-            FIRMWARE FLOWCHART
-          </div>
+          <!-- removed flowchart -->
 
         </div>
 
@@ -156,7 +134,7 @@
     </div>
   </section>
 
-  <!-- COMPUTER VISION -->
+    <!-- CV PIPELINE -->
   <section>
     <div class="container">
 
@@ -167,27 +145,21 @@
       <div class="card">
 
         <p>
-          The processing pipeline uses lightweight edge-based computer vision
-          algorithms optimized for embedded execution. A Sobel-style gradient
-          approximation is used to estimate horizontal and vertical image edges.
+          Uses lightweight Sobel-style edge detection optimized for embedded execution.
         </p>
-
-        <br>
 
         <p>
-          Pixels exceeding a configurable threshold are classified as edges and
-          stored in a binary edge map for further segmentation and object analysis.
+          Edge pixels are thresholded into a binary map for segmentation.
         </p>
 
-        <div class="grid-2">
+        <!-- DIAGRAM PLACEHOLDER -->
+        <div class="diagram-container">
 
-          <div class="placeholder-img">
-            EDGE DETECTION OUTPUT
-          </div>
-
-          <div class="placeholder-img">
-            OBJECT SEGMENTATION OUTPUT
-          </div>
+          <img 
+            src="../assets/Images/ESP32_CAM_Pipeline.png" 
+            alt="Computer Vision Pipeline Diagram"
+            class="diagram-image"
+          >
 
         </div>
 
@@ -196,12 +168,12 @@
     </div>
   </section>
 
-  <!-- REAL TIME DESIGN -->
+  <!-- REAL TIME -->
   <section>
     <div class="container">
 
       <div class="section-title">
-        <h2>Real-Time Processing</h2>
+        <h2>Real-Time Processing Optimizations</h2>
       </div>
 
       <div class="grid-2">
@@ -211,21 +183,8 @@
           <h3>Task Scheduling</h3>
 
           <p>
-            Image acquisition and image processing execute independently on
-            separate CPU cores using FreeRTOS task pinning and queue-based
-            synchronization.
+            Separate CPU cores handle frame acquisition, buffering and processing using FreeRTOS to minimize CPU overload.
           </p>
-
-          <br>
-
-          <p>
-            This design minimizes blocking behavior and improves overall frame
-            handling reliability.
-          </p>
-
-          <div class="placeholder-img">
-            FREERTOS TASK DIAGRAM
-          </div>
 
         </div>
 
@@ -234,15 +193,8 @@
           <h3>Memory Optimization</h3>
 
           <p>
-            Several optimizations were required to maintain stable operation under
-            limited RAM conditions, including grayscale-only processing, static
-            memory allocation, low-resolution frame buffers, and PSRAM-backed
-            storage.
+            Implements grayscale, low-resolution image formats only to optimize processing framerate and CPU load under PSRAM and SRAM constraints.
           </p>
-
-          <div class="placeholder-img">
-            MEMORY / BUFFER VISUALIZATION
-          </div>
 
         </div>
 
@@ -251,96 +203,56 @@
     </div>
   </section>
 
-  <!-- WIFI STREAMING -->
+  <!-- WIFI -->
   <section>
     <div class="container">
 
       <div class="section-title">
-        <h2>WiFi Video Streaming</h2>
+        <h2>WiFi Streaming</h2>
       </div>
 
       <div class="card">
 
         <p>
-          A secondary firmware implementation streams live camera frames over WiFi
-          to a PC-hosted web server for remote monitoring and debugging.
+          Frames are streamed over WiFi for debugging and visualization on a host PC python server using the ESP32 Wifi capibilities.
         </p>
-
-        <br>
 
         <p>
-          This streaming mode was used to visualize intermediate processing stages,
-          test camera performance, and assist with algorithm development.
+          Used primarily for debugging and visualization.
         </p>
-
-        <div class="grid-2">
-
-          <div class="placeholder-img">
-            WEB STREAM SCREENSHOT
-          </div>
-
-          <div class="placeholder-img">
-            NETWORK ARCHITECTURE DIAGRAM
-          </div>
-
-        </div>
 
       </div>
 
     </div>
   </section>
 
-  <!-- DEBUGGING -->
+  <!-- DEBUG -->
   <section>
     <div class="container">
 
       <div class="section-title">
-        <h2>Debugging & Development</h2>
+        <h2>Debugging</h2>
       </div>
 
       <div class="grid-2">
 
         <div class="card">
 
-          <h3>Edge Detection Tuning</h3>
+          <h3>Edge Detection</h3>
 
           <p>
-            Significant tuning was required to achieve reliable edge extraction
-            under changing lighting conditions and low-contrast environments.
+            Threshold tuning was required due to lighting variation and noise. Issue still persists but is minimized in constant brightness environments.
           </p>
-
-          <br>
-
-          <p>
-            Threshold sensitivity and image noise presented major challenges during
-            early testing iterations.
-          </p>
-
-          <div class="placeholder-img">
-            EDGE THRESHOLD COMPARISON
-          </div>
 
         </div>
 
         <div class="card">
 
-          <h3>Object Segmentation</h3>
+          <h3>Object tracking</h3>
 
           <p>
-            Experimental connected-component labeling logic was developed to
-            identify object regions from binary edge maps.
+            Object centroid calculation was significantly inaccurate due to gaps in the edge detection and segmentation logic. Was solved after reviewing and tuning parameters in the image processing pipline. 
           </p>
-
-          <br>
-
-          <p>
-            Current work focuses on improving segmentation stability and adding
-            centroid and bounding-box extraction.
-          </p>
-
-          <div class="placeholder-img">
-            OBJECT LABELING DEBUG OUTPUT
-          </div>
 
         </div>
 
@@ -354,7 +266,7 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Performance & Testing</h2>
+        <h2>Performance</h2>
       </div>
 
       <div class="card">
@@ -369,32 +281,11 @@
           </thead>
 
           <tbody>
-
-            <tr>
-              <td>Image Resolution</td>
-              <td>160 x 120 (QQVGA)</td>
-            </tr>
-
-            <tr>
-              <td>Pixel Format</td>
-              <td>Grayscale</td>
-            </tr>
-
-            <tr>
-              <td>Processing Method</td>
-              <td>Edge-Based Segmentation</td>
-            </tr>
-
-            <tr>
-              <td>RTOS</td>
-              <td>FreeRTOS</td>
-            </tr>
-
-            <tr>
-              <td>Streaming Support</td>
-              <td>WiFi Web Streaming</td>
-            </tr>
-
+            <tr><td>Resolution</td><td>160 x 120</td></tr>
+            <tr><td>Pixel Format</td><td>Grayscale</td></tr>
+            <tr><td>Processing</td><td>Edge Segmentation</td></tr>
+            <tr><td>RTOS</td><td>FreeRTOS</td></tr>
+            <tr><td>Streaming</td><td>WiFi</td></tr>
           </tbody>
 
         </table>
@@ -404,48 +295,22 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- FUTURE -->
   <section>
     <div class="container">
 
       <div class="section-title">
-        <h2>Project Gallery</h2>
-      </div>
-
-      <div class="grid-3 gallery">
-
-        <img src="images/gallery1.jpg" alt="">
-        <img src="images/gallery2.jpg" alt="">
-        <img src="images/gallery3.jpg" alt="">
-        <img src="images/gallery4.jpg" alt="">
-        <img src="images/gallery5.jpg" alt="">
-        <img src="images/gallery6.jpg" alt="">
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FUTURE WORK -->
-  <section>
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Future Improvements</h2>
+        <h2>Future Changes</h2>
       </div>
 
       <div class="card">
 
-        <ul class="future-list">
-
-          <li>Connected-component flood fill segmentation</li>
-          <li>Centroid and bounding-box extraction</li>
+        <ul>
+          <li>Connected-component segmentation</li>
+          <li>Bounding box + centroid extraction</li>
           <li>Multi-object tracking</li>
           <li>Adaptive thresholding</li>
-          <li>Motion prediction and tracking filters</li>
-          <li>Higher frame-rate optimizations</li>
-          <li>Remote parameter tuning interface</li>
-
+          <li>Motion tracking filters</li>
         </ul>
 
       </div>
@@ -463,14 +328,7 @@
 
       <div class="card">
 
-        <div class="resource-links">
-
-          <a href="#">GitHub Repository</a>
-          <a href="#">Firmware Source</a>
-          <a href="#">Technical Documentation</a>
-          <a href="#">Streaming Server Code</a>
-
-        </div>
+        <a href="https://github.com/SohumNigam/ELEGOO-ESP32-Camera">GitHub Repository</a>
 
       </div>
 
@@ -479,12 +337,9 @@
 
   <!-- FOOTER -->
   <footer>
-
     <p>
-      Experimental embedded computer vision project developed for educational and
-      research purposes.
+      Embedded computer vision project for educational and experimental use.
     </p>
-
   </footer>
 
 </body>
