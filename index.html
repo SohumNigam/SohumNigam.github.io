@@ -3,54 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Sohum Nigam</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <title>Sohum Nigam — Engineering Portfolio</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
   <!-- NAV -->
-
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#research">Research</a>
-    <a href="#contact">Contact Me</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <!-- HERO -->
-
   <section id="home" class="hero show">
-
     <div class="hero-content">
 
-      
-      <h1>
-        Sohum Nigam
-      </h1>
-      <h2>
-        Maker <span>Portfolio</span>
-      </h2>
-      
       <div class="hero-tag">
         EMBEDDED SYSTEMS · ROBOTICS · ACTIVE CONTROL
       </div>
-      
-    </div>
-    
-  </section>
-  
-  <!-- ABOUT -->
 
+      <h1>Sohum Nigam</h1>
+
+      <h2>
+        Building systems where <span>software meets hardware</span>
+      </h2>
+
+      <p class="hero-sub">
+        High school engineer designing embedded firmware, biomedical electronics,
+        and autonomous robots investigating how intelligent systems
+        interact with the physical world.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="cta-btn">View Projects</a>
+        <a href="#contact" class="cta-btn cta-btn--outline">Get in Touch</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
   <section id="about">
 
     <div class="section-header">
@@ -62,25 +61,35 @@
 
       <div class="panel">
 
+       
+        <img src="assets/Images/your-photo.jpg" alt="Sohum Nigam" class="about-photo">
+
         <p>
-          My name is Sohum, a highschool student engineer focused on embedded systems, robotics, and reasearch driven investigation.
-          I enjoy building active control systems that integrate software, electronics, and physiscal design.
-          I am particularly interested in projects that implement multiple engineering diciplines to activley acieve a goal or solve a problem.
+          I'm Sohum, a high school engineer based in British Columbia. My work sits at the intersection
+          of embedded firmware, electronics, and physical systems. I'm drawn to problems where
+          all three have to work together perfectly.
         </p>
-        <p>  
-          Skills:
+
+        <p>
+          What started with curiosity about how robots move led me to build a minimal-DOF quadruped.
+          Asking how bioelectrical signals could be better controlled led me to a research investigation
+          into closed-loop TENS stimulation. I build to understand, and I document everything along the way.
+        </p>
+
+        <p>
         </p>
 
         <div class="skills">
-
+          <div class="skill">C / Embedded C</div>
           <div class="skill">C++</div>
           <div class="skill">Python</div>
           <div class="skill">STM32</div>
           <div class="skill">ESP32</div>
           <div class="skill">OpenCV</div>
           <div class="skill">PCB Design</div>
+          <div class="skill">FreeRTOS</div>
           <div class="skill">Control Systems</div>
-
+          <div class="skill">KiCad</div>
         </div>
 
       </div>
@@ -90,21 +99,54 @@
         <h3>Focus Areas</h3>
 
         <p>
-          • Embedded firmware<br>
-          • Robotics<br>
-          • Computer vision<br>
-          • Biomedical electronics<br>
-          • Real-time control algorithms<br>
-          • Hardware prototyping
+          My projects span a few intersecting domains, each informing the others:
         </p>
+
+        <div class="focus-list">
+          <div class="focus-item">
+            <span class="focus-icon">⚙</span>
+            <div>
+              <strong>Embedded Firmware</strong>
+              <p>Real-time systems, RTOS task management, hardware abstraction</p>
+            </div>
+          </div>
+          <div class="focus-item">
+            <span class="focus-icon">🤖</span>
+            <div>
+              <strong>Robotics</strong>
+              <p>Gait design, servo coordination, locomotion mechanics</p>
+            </div>
+          </div>
+          <div class="focus-item">
+            <span class="focus-icon">👁</span>
+            <div>
+              <strong>Computer Vision</strong>
+              <p>Edge detection, object segmentation, embedded CV pipelines</p>
+            </div>
+          </div>
+          <div class="focus-item">
+            <span class="focus-icon">⚕</span>
+            <div>
+              <strong>Biomedical Electronics</strong>
+              <p>Stimulation systems, analog sensing, feedback control</p>
+            </div>
+          </div>
+          <div class="focus-item">
+            <span class="focus-icon">🔌</span>
+            <div>
+              <strong>PCB Design</strong>
+              <p>Schematic capture, layout, analog/digital co-design</p>
+            </div>
+          </div>
+        </div>
 
       </div>
 
     </div>
 
   </section>
+
   <!-- PROJECTS -->
-  
   <section id="projects">
 
     <div class="section-header">
@@ -115,66 +157,54 @@
     <div class="grid">
 
       <a class="card" href="projects/esp32-cam.html">
-
         <div class="card-image">
-          <img src="assets/Images/ESP32_CAM_Hero.jpg" alt="ESP32-CAM">
+          <img src="assets/Images/ESP32_CAM_Hero.jpg" alt="ESP32-CAM Object Tracking">
         </div>
-
         <div class="card-content">
+          <div class="card-status card-status--done">Completed</div>
           <h3>ESP32-CAM Object Tracking</h3>
-
           <p>
-            Hardware contrained embedded computer vision pipeline for
-            real-time object detection and tracking.
+            Hardware-constrained embedded computer vision pipeline for
+            real-time object detection and tracking using Sobel edge detection
+            on a resource-limited MCU.
           </p>
-
-          <div class="tag">
-            ESP32 · CV · Embedded Systems
-          </div>
+          <div class="tag">ESP32 · CV · Embedded Systems</div>
         </div>
-
       </a>
 
       <a class="card" href="projects/SinglAXS.html">
-
         <div class="card-image">
-          <img src="assets/Images/SinglAXS_Hero.png" alt="SinglAXS">
+          <img src="assets/Images/SinglAXS_Hero.png" alt="SinglAXS Quadruped">
         </div>
-
         <div class="card-content">
+          <div class="card-status card-status--done">Completed</div>
           <h3>SinglAXS Robotics System</h3>
-
           <p>
-            Four-legged robotic platform exploring
-            gait stability and servo coordination with 1 degree of freedom per leg.
+            Four-legged robotic platform exploring gait stability and servo
+            coordination with intentionally minimal 1 degree of freedom
+            per leg design.
           </p>
-
-          <div class="tag">
-            Robotics · Control · Mechanics
-          </div>
+          <div class="tag">Robotics · Control · Mechanics</div>
         </div>
-
       </a>
 
       <a class="card" href="projects/stm32-tens.html">
-
-        <div class="card-image">
-          <img src="https://via.placeholder.com/800x500" alt="assets/Images/">
-        </div>
-
-        <div class="card-content">
-          <h3>STM32 TENS Device</h3>
-
-          <p>
-            Biomedical pain relief stimulation system with active
-            waveform control and safety feedback.
-          </p>
-
-          <div class="tag">
-            STM32 · Biomedical · Control algorithms
+        <div class="card-image card-image--placeholder">
+          <div class="card-wip">
+            <span>🔬</span>
+            <p>In Development</p>
           </div>
         </div>
-
+        <div class="card-content">
+          <div class="card-status card-status--wip">In Development</div>
+          <h3>STM32 Closed-Loop TENS Device</h3>
+          <p>
+            Research-driven biomedical system using real-time feedback control
+            to stabilize TENS stimulation output against skin-electrode impedance
+            variability.
+          </p>
+          <div class="tag">STM32 · Biomedical · Control Algorithms</div>
+        </div>
       </a>
 
     </div>
@@ -182,97 +212,94 @@
   </section>
 
   <!-- RESEARCH -->
-
   <section id="research">
 
     <div class="section-header">
-      <div class="section-label">EXPLORATION</div>
+      <div class="section-label">INVESTIGATION</div>
       <h2>Research</h2>
     </div>
 
     <div class="stack">
 
-      <div class="panel">
-        <h3>Independent study (<i>In development</i>)</h3>
-
+      <div class="panel research-panel">
+        <div class="research-badge">Active Study</div>
+        <h3>Novel Feedback-Stabilized Framework in TENS for Chronic Pain Relief</h3>
         <p>
-          Novel Feedback Stabilized Framework in Transcutaneous Electrical Nerve Stimulation for Clinically Stable Chronic Pain Relief 
+          An independent research investigation into why conventional TENS therapy produces
+          inconsistent results and whether closed-loop current regulation can solve it.
+          This work directly drives the STM32 TENS hardware project.
         </p>
-
         <a href="assets/Documents/STM_TENS_research_proposal.pdf" target="_blank" class="pdf-link">
-          Research Proposal
+          Research Proposal ↗
         </a>
-
-
       </div>
 
       <div class="panel">
-        <h3>Acedemic Research</h3>
-
+        <div class="research-badge research-badge--complete">Complete</div>
+        <h3>Engineering Community: Reframing Urban Infrastructure as a System for Social Interaction</h3>
         <p>
-          Engineering Community: Reframing Urban Infrastructure as a System for Social Interaction
+          An academic investigation into how the design of urban infrastructure shapes
+          the social fabric of communities.
         </p>
-
         <a href="assets/Documents/UrbanCommunity_Paper.pdf" target="_blank" class="pdf-link">
-          Research Paper
+          Research Paper ↗
         </a>
-
       </div>
 
     </div>
 
   </section>
 
-
   <!-- CONTACT -->
-
   <section id="contact" class="contact">
 
     <div class="section-header">
-      <div class="section-label">Need somthing built?</div>
-      <h2>Lets Work Together</h2>
+      <div class="section-label">LET'S BUILD SOMETHING</div>
+      <h2>Get in Touch</h2>
     </div>
 
+    <p class="contact-sub">
+      Whether you're a university admissions team, a potential collaborator,
+      or someone with a project that needs building, I'd love to hear from you.
+    </p>
+
     <div class="contact-links">
-
       <a href="mailto:sohum.arjit.nigam@gmail.com">
-        Email
+        📧 Email Me
       </a>
-
-      <a href="https://github.com/SohumNigam">
+      <a href="https://github.com/SohumNigam" target="_blank">
         GitHub
       </a>
-
     </div>
 
   </section>
 
   <footer>
-    2026 Engineering Portfolio
+    <p>Sohum Nigam · Engineering Portfolio · 2026</p>
   </footer>
 
   <script>
-
     const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
 
     const observer = new IntersectionObserver((entries) => {
-
       entries.forEach((entry) => {
-
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
+
+          // Highlight matching nav link
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach(link => {
+            link.classList.remove("nav-active");
+            if (link.getAttribute("href") === `#${id}`) {
+              link.classList.add("nav-active");
+            }
+          });
         }
-
       });
+    }, { threshold: 0.6 });
 
-    }, {
-      threshold: 0.15
-    });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-
+    sections.forEach(section => observer.observe(section));
   </script>
 
 </body>

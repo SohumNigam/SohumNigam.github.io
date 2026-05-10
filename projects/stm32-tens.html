@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TENS Unit Project</title>
-
+  <title>STM32 Closed-Loop TENS Unit — Sohum Nigam</title>
   <link rel="stylesheet" href="../assets/CSS/stm_tens_style.css">
 </head>
 
@@ -25,13 +24,13 @@
         <h1>Closed-Loop TENS Unit</h1>
 
         <p>
-          This project implements a feedback control system for TENS stimulation to reduce variability
-          caused by the skin-electrode interface. The system is currently in active development and
-          experimental validation.
+          A research-driven biomedical project implementing a feedback control system
+          for transcutaneous electrical nerve stimulation (TENS) targeting the core
+          clinical problem of stimulation variability caused by the skin-electrode interface.
         </p>
 
         <p><strong>Project start:</strong> Feb 5, 2026</p>
-        <p><strong>Status:</strong>UNDER DEVELOPMENT</p>
+        <p><strong>Status:</strong> Under Active Development</p>
 
         <div class="tags">
           <div class="tag">STM32</div>
@@ -44,14 +43,12 @@
         <div class="hero-buttons">
           <a href="https://github.com/SohumNigam/STM_TENS" class="btn btn-primary">GitHub Repository</a>
           <a href="../assets/Documents/STM_TENS_research_proposal.pdf" class="btn btn-secondary">Research Proposal</a>
-
         </div>
       </div>
 
-      <!-- Minimal visual placeholder instead of real image -->
       <div class="hero-image">
         <div class="placeholder-img">
-          Images coming soon!<br/>
+          Hardware images coming as development progresses
         </div>
       </div>
 
@@ -68,14 +65,19 @@
 
       <div class="card">
         <p>
-          Transcutaneous electrical nerve stimulation (TENS) suffers from variability due to
-          skin-electrode impedance changes. This project investigates a closed-loop approach
-          using real-time feedback to stabilize stimulation output.
+          Conventional TENS devices deliver open-loop stimulation. They output a fixed waveform
+          regardless of what's actually happening at the skin-electrode interface. The problem is that
+          skin impedance is dynamic: it changes with moisture, electrode placement, and over time during
+          a session. This means the actual current reaching the nerve tissue varies significantly,
+          making therapeutic outcomes inconsistent as well as driving difficult to replicate research.
         </p>
 
-        <div class="placeholder-img">
-          Images coming soon!
-        </div>
+        <p>
+          This project investigates whether a closed-loop approach, using real-time sensing of
+          delivered current to actively regulate the stimulation output, can meaningfully
+          reduce this variability. It is simultaneously a embedded systems engineering project and
+          a research investigation; see the Research Proposal for the full academic framing.
+        </p>
       </div>
 
     </div>
@@ -94,25 +96,21 @@
         <div class="card">
           <h3>Hardware (In Progress)</h3>
           <p>
-            PCB design includes stimulation driver stage, sensing circuit, and STM32 control unit.
-            Final schematic and layout diagrams will be added once revisions are complete.
+            PCB design includes a stimulation driver stage, a sensing circuit for
+            current feedback, and an STM32 microcontroller as the control unit.
+            Schematic and layout diagrams will be added once the current revision is finalized.
           </p>
-
-          <div class="placeholder-img">
-            Images coming soon!
-          </div>
+          <div class="placeholder-img">Schematic coming soon</div>
         </div>
 
         <div class="card">
           <h3>Firmware (In Progress)</h3>
           <p>
-            Firmware handles waveform generation, ADC sampling, and feedback regulation loop.
-            Control algorithm is currently being tuned.
+            Firmware handles biphasic waveform generation via timer-driven PWM,
+            ADC sampling of the sense resistor, and the feedback regulation loop.
+            The control algorithm parameters are currently being characterized and tuned.
           </p>
-
-          <div class="placeholder-img">
-            Images coming soon!
-          </div>
+          <div class="placeholder-img">Firmware diagram coming soon</div>
         </div>
 
       </div>
@@ -130,13 +128,13 @@
 
       <div class="card">
         <p>
-          PCB layout is still under revision. Key focus areas include analog grounding,
-          noise isolation, and safe current-limited output design.
+          The PCB layout is under active revision. Key design challenges include
+          analog grounding strategy to minimize noise in the sense path, isolation
+          between the high-voltage stimulation stage and the low-voltage control circuitry,
+          and a current-limited output design to ensure safety during testing.
         </p>
 
-        <div class="placeholder-img">
-          Images coming soon!
-        </div>
+        <div class="placeholder-img">PCB layout coming soon</div>
 
       </div>
 
@@ -148,18 +146,17 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Debugging & Iteration</h2>
+        <h2>Debugging &amp; Iteration</h2>
       </div>
 
       <div class="card">
         <p>
-          This section will document design challenges and fixes as the system is tested.
-          Currently no finalized debugging case studies are available.
+          This section will document design challenges and fixes as the system moves through
+          bench testing. Debugging logs, oscilloscope captures, and design change rationale
+          will be added here as the project progresses.
         </p>
 
-        <div class="placeholder-img">
-          Images coming soon!
-        </div>
+        <div class="placeholder-img">Debugging documentation in progress</div>
       </div>
 
     </div>
@@ -170,12 +167,12 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Testing & Validation</h2>
+        <h2>Testing &amp; Validation</h2>
       </div>
 
       <div class="card">
 
-        <p><strong>Testing phase not yet complete.</strong></p>
+        <p>Testing phase is not yet complete. Planned validation targets:</p>
 
         <table>
           <thead>
@@ -184,21 +181,22 @@
               <th>Status</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
-              <td>Current Stability</td>
+              <td>Output Current Stability (open-loop baseline)</td>
               <td>Planned</td>
             </tr>
-
             <tr>
-              <td>ADC Sampling Rate</td>
+              <td>ADC Sampling Rate &amp; Accuracy</td>
               <td>In Progress</td>
             </tr>
-
             <tr>
-              <td>Closed-loop Regulation</td>
+              <td>Closed-Loop Regulation Performance</td>
               <td>In Development</td>
+            </tr>
+            <tr>
+              <td>Impedance Perturbation Response</td>
+              <td>Planned</td>
             </tr>
           </tbody>
         </table>
@@ -208,7 +206,7 @@
     </div>
   </section>
 
-  <!-- GALLERY (MINIMAL) -->
+  <!-- GALLERY -->
   <section>
     <div class="container">
 
@@ -217,11 +215,8 @@
       </div>
 
       <div class="card">
-        <p>Gallery will be populated as hardware testing progresses.</p>
-
-        <div class="placeholder-img">
-          Images coming soon!
-        </div>
+        <p>Hardware photos will be added as bench assembly and testing progresses.</p>
+        <div class="placeholder-img">Photos coming soon</div>
       </div>
 
     </div>
@@ -236,15 +231,12 @@
       </div>
 
       <div class="card">
-
         <div class="resource-links">
           <a href="https://github.com/SohumNigam/STM_TENS">GitHub Repository</a>
           <a href="../assets/Documents/STM_TENS_research_proposal.pdf">Research Proposal</a>
           <span>Technical Documentation (In Progress)</span>
-          <span>KiCad Files (Not Released Yet)</span>
-          <span>Gerber Files (Not Generated Yet)</span>
+          <span>KiCad Files (Not Yet Released)</span>
         </div>
-
       </div>
 
     </div>

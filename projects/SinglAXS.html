@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>SinglAXS</title>
-
+  <title>SinglAXS Quadruped — Sohum Nigam</title>
   <link rel="stylesheet" href="../assets/CSS/SinglAXS_style.css">
 </head>
 
@@ -14,14 +12,10 @@
 
   <!-- NAV -->
   <nav class="project-nav">
-
     <a href="../index.html">← Home</a>
     <a href="../index.html#projects">Projects</a>
-
     <span class="divider">|</span>
-
     <span class="title">SinglAXS</span>
-
   </nav>
 
   <!-- HERO -->
@@ -40,9 +34,10 @@
 
         <p>
           SinglAXS was built to investigate how much walking functionality
-          could be achieved using an intentionally constrained mechanical design.
-          Instead of relying on complex inverse kinematics and multi-axis legs,
-          the platform used a single rotational axis per leg with direct-drive SG90 servos.
+          could be achieved with an intentionally constrained mechanical design.
+          Rather than relying on complex inverse kinematics and multi-axis legs,
+          the platform uses a single rotational axis per leg with direct-drive SG90 servos which
+          forces the gait logic to do the heavy lifting.
         </p>
 
         <p class="project-date">
@@ -50,37 +45,24 @@
         </p>
 
         <div class="tags">
-
           <div class="tag">ESP32-WROVER</div>
           <div class="tag">Embedded C</div>
           <div class="tag">FreeRTOS</div>
           <div class="tag">Robotics</div>
           <div class="tag">Gait Design</div>
           <div class="tag">3D Printing</div>
-
         </div>
 
         <div class="hero-buttons">
-
-          <a
-            href="https://github.com/SohumNigam/SinglAXS"
-            class="btn btn-primary">
-
+          <a href="https://github.com/SohumNigam/SinglAXS" class="btn btn-primary">
             GitHub Repository
-
           </a>
-
         </div>
 
       </div>
 
       <div class="hero-image">
-
-        <!-- ONE STRONG HERO IMAGE -->
-        <img
-          src="../assets/Images/SinglAXS_Hero.png"
-          alt="SinglAXS quadruped robot">
-
+        <img src="../assets/Images/SinglAXS_Hero.png" alt="SinglAXS quadruped robot">
       </div>
 
     </div>
@@ -99,17 +81,18 @@
       <div class="card">
 
         <p>
-          Traditional quadruped robots commonly use multiple degrees of freedom
-          per leg alongside advanced motion planning systems. SinglAXS intentionally
-          reduced this complexity to explore how stable walking behavior could emerge
-          from a highly constrained platform.
+          Traditional quadruped robots commonly use multiple degrees of freedom per leg
+          alongside advanced motion planning systems. SinglAXS intentionally reduced this
+          complexity to explore whether stable walking behavior could emerge from a
+          highly constrained platform and what that constraint reveals about gait design.
         </p>
 
         <p>
-          The robot used four SG90 servos, a lightweight 3D printed frame,
-          and an ESP32-WROVER microcontroller running FreeRTOS-based gait logic.
-          The project focused primarily on gait experimentation, synchronization,
-          and mechanical iteration rather than creating a polished final product.
+          The robot uses four SG90 servos, a lightweight 3D printed frame, and an ESP32-WROVER
+          microcontroller running FreeRTOS-based gait logic. The project focused primarily on
+          gait experimentation, timing synchronization, and mechanical iteration rather than
+          producing a polished commercial-style product. Every design choice was made in service
+          of learning.
         </p>
 
       </div>
@@ -130,36 +113,27 @@
       <div class="grid-3">
 
         <div class="card">
-
           <h3>Minimal Actuation</h3>
-
           <p>
-            Each leg used only a single rotational axis to simplify control
-            logic and reduce overall mechanical complexity.
+            Each leg uses only a single rotational axis to simplify control logic
+            and reduce mechanical complexity. This is the key constraint driving all other decisions.
           </p>
-
         </div>
 
         <div class="card">
-
-          <h3>Compact Architecture</h3>
-
+          <h3>Rapid Iteration</h3>
           <p>
-            The frame was optimized around lightweight 3D printed parts
-            and direct-drive SG90 servos.
+            The frame was optimized around lightweight 3D printed parts and
+            direct-drive SG90 servos to allow fast physical redesign between experiments.
           </p>
-
         </div>
 
         <div class="card">
-
           <h3>Gait Experimentation</h3>
-
           <p>
-            The project emphasized timing, phase relationships,
-            and locomotion stability testing.
+            The project prioritized testing timing relationships, phase offsets,
+            and locomotion stability over building toward any specific end application.
           </p>
-
         </div>
 
       </div>
@@ -184,18 +158,16 @@
           <h3>Hardware</h3>
 
           <p>
-            The robot used a lightweight embedded system architecture
-            designed around low cost and rapid iteration.
+            The robot uses a lightweight embedded system architecture designed
+            for low cost and rapid iteration:
           </p>
 
           <ul>
-
             <li>ESP32-WROVER Microcontroller</li>
-            <li>4x SG90 Servo Motors</li>
+            <li>4× SG90 Servo Motors</li>
             <li>MPU6050 IMU</li>
             <li>3D Printed Chassis</li>
             <li>Direct-drive leg mechanism</li>
-
           </ul>
 
         </div>
@@ -205,14 +177,15 @@
           <h3>Firmware</h3>
 
           <p>
-            Motion sequencing and gait timing were implemented using FreeRTOS.
-            Different gait patterns were tested by modifying timing offsets,
-            servo synchronization, and stepping sequences.
+            Motion sequencing and gait timing are implemented using FreeRTOS.
+            Different gait patterns are tested by modifying timing offsets,
+            servo synchronization parameters, and stepping sequences in firmware
+            without modifying the mechanical platform.
           </p>
 
           <p>
-            The firmware architecture prioritized modular gait testing
-            and rapid iteration over advanced autonomy features.
+            The architecture prioritized modular gait testing and rapid iteration
+            over advanced autonomy features.
           </p>
 
         </div>
@@ -235,19 +208,17 @@
       <div class="card">
 
         <p>
-          The mechanical structure was designed around the limitations
-          of SG90 servos and single-axis leg movement. Emphasis was placed
-          on keeping the frame lightweight while maintaining enough rigidity
-          for repeatable gait experiments.
+          The mechanical structure was designed around the limitations of SG90 servos
+          and single-axis leg movement. Emphasis was placed on keeping the frame lightweight
+          while maintaining enough rigidity for repeatable gait experiments.
         </p>
 
         <p>
-          Several iterations explored changes to body geometry,
-          leg spacing, and mass placement to improve
-          walking stability.
+          Several iterations explored changes to body geometry, leg spacing, and mass
+          placement to improve walking stability. Each revision informed the next,
+          building an understanding of how mechanical parameters interact with gait timing.
         </p>
 
-        <!-- OPTIONAL SINGLE CAD IMAGE -->
         <img
           class="project-image cad"
           src="../assets/Images/SinglAXS_CAD.png"
@@ -271,27 +242,23 @@
       <div class="grid-2">
 
         <div class="card">
-
           <h3>Crawl Gait</h3>
-
           <p>
-            Crawl-style gait patterns prioritized stability and continuous
-            ground contact. These tests were useful for evaluating balance
-            and servo synchronization under slower movement conditions.
+            Crawl-style gait patterns prioritized stability and continuous ground contact.
+            These tests were useful for evaluating balance and servo synchronization under
+            slower, more controllable movement conditions. Provided a stable baseline
+            before attempting faster gaits.
           </p>
-
         </div>
 
         <div class="card">
-
           <h3>Trot Experiments</h3>
-
           <p>
-            Faster trot-inspired stepping sequences improved forward speed
-            but introduced stability challenges due to the robot's limited
-            mechanical degrees of freedom.
+            Faster trot-inspired stepping sequences improved forward speed but introduced
+            stability challenges due to the platform's limited mechanical degrees of freedom.
+            The trot experiments highlighted the tension between speed and stability that
+            defines single-axis locomotion.
           </p>
-
         </div>
 
       </div>
@@ -306,24 +273,23 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Website Interface</h2>
+        <h2>Web Control Interface</h2>
       </div>
 
       <div class="card">
 
-        <h3>Control & Monitoring Interface</h3>
+        <h3>Control &amp; Monitoring Interface</h3>
 
         <p>
-          A lightweight browser-based interface was developed to assist
-          with testing and system interaction during development.
-          The interface was not only used for rapid iteration, gait tuning,
-          and debugging during walking experiments, but also allowed for manual control of the robot.
+          A lightweight browser-based interface was developed to assist with testing
+          and system interaction during development. The interface allowed manual
+          control of the robot and real-time gait parameter adjustment without
+          requiring a firmware flash for every change.
         </p>
 
         <p>
-          The UI prioritized simplicity and responsiveness,
-          allowing adjustments to movement behavior without repeatedly
-          modifying firmware parameters directly in code.
+          This dramatically sped up the iteration cycle during gait tuning experiments,
+          and served as a useful debugging tool for isolating servo-timing issues.
         </p>
 
         <img
@@ -336,7 +302,6 @@
     </div>
 
   </section>
-   
 
   <!-- DEBUGGING -->
   <section>
@@ -344,7 +309,7 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Debugging & Iteration</h2>
+        <h2>Debugging &amp; Iteration</h2>
       </div>
 
       <div class="grid-2">
@@ -354,13 +319,10 @@
           <h3>Servo Jitter</h3>
 
           <p>
-            One of the primary technical challenges involved servo jitter
-            and timing inconsistencies during synchronized movement.
-          </p>
-
-          <p>
-            Multiple firmware revisions explored different update strategies
-            and gait timing approaches to reduce instability.
+            One of the primary technical challenges was servo jitter and timing
+            inconsistencies during synchronized movement. Multiple firmware revisions
+            explored different update strategies and gait timing approaches before
+            reaching acceptable stability.
           </p>
 
         </div>
@@ -370,14 +332,14 @@
           <h3>Mechanical Revisions</h3>
 
           <p>
-            Iterative modifications in leg design were used to analyze the optimal geometry for stability, traction, and weight.
+            Iterative leg geometry modifications analyzed the optimal configuration
+            for stability, ground traction, and weight distribution across the chassis.
           </p>
 
-          <!-- OPTIONAL REAL PHOTO -->
           <img
             class="project-image"
             src="../assets/Images/SinglAXS_Leg.png"
-            alt="SinglAXS prototype revision">
+            alt="SinglAXS leg revision">
 
         </div>
 
@@ -393,56 +355,40 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Testing & Validation</h2>
+        <h2>Testing &amp; Results</h2>
       </div>
 
       <div class="card">
 
         <table>
-
           <thead>
-
             <tr>
-
               <th>Metric</th>
               <th>Result</th>
-
             </tr>
-
           </thead>
-
           <tbody>
-
             <tr>
-
               <td>Total Weight</td>
               <td>&lt; 120 g</td>
-
             </tr>
-
             <tr>
-
               <td>Walking Speed</td>
               <td>3–5 cm/s</td>
-
             </tr>
-
             <tr>
-
               <td>Control System</td>
-              <td>ESP32 + FreeRTOS</td>
-
+              <td>ESP32-WROVER + FreeRTOS</td>
             </tr>
-
             <tr>
-
-              <td>Tested Gaits</td>
-              <td>Crawl and Trot</td>
-
+              <td>Gaits Tested</td>
+              <td>Crawl and Trot variations</td>
             </tr>
-
+            <tr>
+              <td>Degrees of Freedom / Leg</td>
+              <td>1 (single-axis rotation)</td>
+            </tr>
           </tbody>
-
         </table>
 
       </div>
@@ -461,8 +407,6 @@
       </div>
 
       <div class="grid-2 gallery">
-
-        <!-- ONLY 2-4 REAL PHOTOS NEEDED -->
 
         <img
           src="../assets/Images/SinglAXS_Walking.png"
@@ -488,15 +432,9 @@
       </div>
 
       <div class="card">
-
         <div class="resource-links">
-
-          <a href="https://github.com/SohumNigam/SinglAXS">
-            GitHub Repository
-          </a>
-
+          <a href="https://github.com/SohumNigam/SinglAXS">GitHub Repository</a>
         </div>
-
       </div>
 
     </div>
@@ -505,11 +443,7 @@
 
   <!-- FOOTER -->
   <footer>
-
-    <p>
-      SinglAXS — Experimental Minimal-DOF Quadruped Platform
-    </p>
-
+    <p>SinglAXS — Experimental Minimal-DOF Quadruped Platform</p>
   </footer>
 
 </body>
