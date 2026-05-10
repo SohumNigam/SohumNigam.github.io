@@ -278,17 +278,20 @@
     <p>Sohum Nigam · Engineering Portfolio · 2026</p>
   </footer>
 
-<script>
+  <script>
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll("nav a");
 
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+
+      // Reveal section
       if (entry.isIntersecting) {
-
         entry.target.classList.add("show");
+      }
 
-        // Highlight matching nav link
+      // Update navbar
+      if (entry.isIntersecting) {
         const id = entry.target.getAttribute("id");
 
         navLinks.forEach(link => {
@@ -298,18 +301,17 @@
             link.classList.add("nav-active");
           }
         });
-
-        // Stop observing once shown
-        observer.unobserve(entry.target);
       }
+
     });
   }, {
     threshold: 0.15,
-    rootMargin: "0px 0px -10% 0px"
+    rootMargin: "0px 0px -35% 0px"
   });
 
   sections.forEach(section => observer.observe(section));
 </script>
+
 
 </body>
 </html>
