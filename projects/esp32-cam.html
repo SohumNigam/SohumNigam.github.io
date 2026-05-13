@@ -79,6 +79,14 @@
           careful tradeoffs across resolution, algorithm complexity, and RTOS task design.
         </p>
 
+        <div class="image-container">
+          <img
+            src="../assets/Images/ESP32_Camera_Overview.png"
+            alt="Computer Vision Overview Diagram"
+            class="diagram-image"
+          >
+        </div>
+
       </div>
 
     </div>
@@ -134,7 +142,7 @@
           map which feeds into object segmentation and centroid tracking.
         </p>
 
-        <div class="diagram-container">
+        <div class="image-container">
           <img
             src="../assets/Images/ESP32_CAM_Pipeline.png"
             alt="Computer Vision Pipeline Diagram"
@@ -189,13 +197,28 @@
       </div>
 
       <div class="card">
+        
+        <p>
+        Recieved frame on PC webserver:
+        </p>
+
+        <div class="image-container">
+          <img
+            src="../assets/Images/ESP32_CAM_WebView.png"
+            alt="Computer Vision Pipeline Diagram"
+            class="diagram-image"
+          >
+        </div>
+
+
 
         <p>
           Processed frames are streamed over WiFi to a Python server running
           on a host PC, using the ESP32's built-in WiFi capabilities.
           This allowed real-time visual debugging without adding display hardware
-          to the constrained embedded platform.
+          to the constrained embedded platform. Streaming should be disabled  to allow for maximum image processing speed.
         </p>
+
 
       </div>
 

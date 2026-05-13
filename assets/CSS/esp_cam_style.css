@@ -13,6 +13,12 @@ body {
   line-height: 1.6;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* NAV */
+
 .project-nav {
   position: sticky;
   top: 0;
@@ -25,13 +31,12 @@ body {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #222;
 
-  font-size: 14px;
+  font-size: 16px;
   z-index: 100;
 }
 
 .project-nav a {
   color: #e6e6e6;
-  text-decoration: none;
   opacity: 0.8;
   transition: 0.2s ease;
 }
@@ -51,6 +56,8 @@ body {
   font-size: 13px;
 }
 
+/* LAYOUT */
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -61,6 +68,8 @@ section {
   padding: 90px 0;
 }
 
+/* TYPOGRAPHY */
+
 h1, h2, h3 {
   color: white;
 }
@@ -69,16 +78,11 @@ p {
   color: #94a3b8;
 }
 
-a {
-  text-decoration: none;
-}
-
 /* HERO */
 
 .hero {
   padding: 120px 0;
-  background:
-    radial-gradient(circle at top left, #1e293b, #0f1117 60%);
+  background: radial-gradient(circle at top left, #1e293b, #0f1117 60%);
 }
 
 .hero-content {
@@ -202,7 +206,36 @@ a {
   gap: 20px;
 }
 
-/* PLACEHOLDER IMAGE */
+/* =========================
+   IMAGES (FIXED BEHAVIOR)
+========================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Unified image style inside cards */
+.diagram-image,
+.card img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+  background: #161b22;
+  padding: 10px;
+
+  /* IMPORTANT: no hover effects */
+  transition: none;
+}
+
+/* container for diagrams */
+.image-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* PLACEHOLDER */
 
 .placeholder-img {
   width: 100%;
@@ -218,40 +251,6 @@ a {
 
   color: #64748b;
   font-weight: bold;
-}
-
-/* =========================
-   DIAGRAM (VISION PIPELINE)
-========================= */
-
-.diagram-container {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-}
-
-.diagram-image {
-  width: 100%;
-  max-width: 800px;
-
-  /* keeps it consistent with your cards */
-  border-radius: 18px;
-  border: 1px solid #1e293b;
-
-
-  /* makes it feel slightly “embedded UI” */
-  background: #161b22;
-
-  padding: 12px;
-
-  /* smooth edges + premium feel */
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* hover polish (optional but nice for portfolio feel) */
-.diagram-image:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
 }
 
 /* TABLE */
@@ -274,14 +273,6 @@ th {
 
 td {
   color: #cbd5e1;
-}
-
-/* GALLERY */
-
-.gallery img {
-  width: 100%;
-  border-radius: 14px;
-  border: 1px solid #1e293b;
 }
 
 /* RESOURCES */
@@ -316,7 +307,6 @@ footer {
 /* RESPONSIVE */
 
 @media (max-width: 768px) {
-
   .hero-text h1 {
     font-size: 2.5rem;
   }
@@ -324,5 +314,4 @@ footer {
   section {
     padding: 70px 0;
   }
-
 }
