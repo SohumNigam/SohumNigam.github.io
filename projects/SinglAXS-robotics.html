@@ -95,6 +95,11 @@
           of learning.
         </p>
 
+        <img
+            class="project-image"
+            src="../assets/Images/SinglAXS_Overview.png"
+            alt="SinglAXS overview">
+
       </div>
 
     </div>
@@ -151,33 +156,12 @@
         <h2>System Architecture</h2>
       </div>
 
-      <div class="grid-2">
-
         <div class="card">
 
-          <h3>Hardware</h3>
+          <h3>Embedded Pipeline</h3>
 
           <p>
-            The robot uses a lightweight embedded system architecture designed
-            for low cost and rapid iteration:
-          </p>
-
-          <ul>
-            <li>ESP32-WROVER Microcontroller</li>
-            <li>4× SG90 Servo Motors</li>
-            <li>MPU6050 IMU</li>
-            <li>3D Printed Chassis</li>
-            <li>Direct-drive leg mechanism</li>
-          </ul>
-
-        </div>
-
-        <div class="card">
-
-          <h3>Firmware</h3>
-
-          <p>
-            Motion sequencing and gait timing are implemented using FreeRTOS.
+            Motion sequencing and gait timing are implemented using FreeRTOS from various movement inputs.
             Different gait patterns are tested by modifying timing offsets,
             servo synchronization parameters, and stepping sequences in firmware
             without modifying the mechanical platform.
@@ -185,14 +169,18 @@
 
           <p>
             The architecture prioritized modular gait testing and rapid iteration
-            over advanced autonomy features.
+            while also including specialized autonomy features.
           </p>
+          
+          <img
+            class="project-image"
+            src="../assets/Images/SinglAXS_Pipeline.png"
+            alt="SinglAXS pipeline">
 
         </div>
 
       </div>
 
-    </div>
 
   </section>
 
