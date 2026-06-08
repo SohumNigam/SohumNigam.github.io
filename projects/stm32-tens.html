@@ -96,9 +96,8 @@
         <div class="card">
           <h3>Hardware (In Progress)</h3>
           <p>
-            PCB design includes a stimulation driver stage, a sensing circuit for
-            current feedback, and an STM32 microcontroller as the control unit.
-            Schematic and layout diagrams will be added once the current revision is finalized.
+            Current hardware design is centered around rapid prototyping and iteration. The prototype is built around an STM32 Nucleo board that sends PWM signals to an L293D H-bridge driver to generate a balanced 
+            biphasic waveform for high-voltage, low-current stimulation. A sense resistor in series with the output allows for real-time current measurement via the STM32's ADC, enabling the feedback control loop.
           </p>
           <div class="placeholder-img">Schematic coming soon</div>
         </div>
@@ -106,9 +105,9 @@
         <div class="card">
           <h3>Firmware (In Progress)</h3>
           <p>
-            Firmware handles biphasic waveform generation via timer-driven PWM,
-            ADC sampling of the sense resistor, and the feedback regulation loop.
-            The control algorithm parameters are currently being characterized and tuned.
+            Firmware uses the STM32's synchronised timer interrupts to precisely update the waveform output at the desired frequency. 
+            ADC sampling is timed to land centrally within the pulse to accurately capture the average current delivered. 
+            ADC readings are processed through a calibrated feedback loop to adjust the signal's phase width by updating the timers' interrupt registers in real time. 
           </p>
           <div class="placeholder-img">Firmware diagram coming soon</div>
         </div>
@@ -128,10 +127,7 @@
 
       <div class="card">
         <p>
-          The PCB layout is under active revision. Key design challenges include
-          analog grounding strategy to minimize noise in the sense path, isolation
-          between the high-voltage stimulation stage and the low-voltage control circuitry,
-          and a current-limited output design to ensure safety during testing.
+          PCB design is currently not in development. The initial prototype is being built on a breadboard for rapid iteration. Once the design stabilizes, I plan to transition to a custom PCB layout using KiCad, which will integrate the STM32 microcontroller, H-bridge driver, sense resistor, and necessary passive components into a compact form factor suitable for benchtop testing and eventual wearable use.
         </p>
 
         <div class="placeholder-img">PCB layout coming soon</div>
