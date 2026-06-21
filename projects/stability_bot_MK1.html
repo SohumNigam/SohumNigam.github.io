@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stability Bot MK1 — Sohum Nigam</title>
+
+  <link rel="stylesheet" href="../assets/CSS/projects.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="project-nav">
+    <a href="../index.html">← Home</a>
+    <a href="../index.html#projects">Projects</a>
+    <span class="divider">|</span>
+    <span class="title">Stability Bot MK1</span>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+
+        <h1>Stability Bot MK1</h1>
+
+        <p>
+          A self-balancing robot built to explore embedded control systems,
+          sensor fusion, real-time firmware architecture, and custom robotics
+          hardware. The project combines mechanical design, electronics,
+          and closed-loop control into a fully autonomous balancing platform.
+        </p>
+
+        <p><strong>Project start:</strong> June 2026</p>
+        <p><strong>Status:</strong> Prototype completed</p>
+
+        <div class="tags">
+          <div class="tag">ESP32</div>
+          <div class="tag">Robotics</div>
+          <div class="tag">FreeRTOS</div>
+          <div class="tag">PID Control</div>
+          <div class="tag">Embedded C</div>
+          <div class="tag">3D Printing</div>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="https://github.com/SohumNigam/StabilityBot_MK1" class="btn btn-primary" target="_blank">GitHub Repository</a>
+        </div>
+
+      </div>
+
+      <div class="hero-image">
+        <img src="../assets/Images/StabilityBot_Hero.jpg"
+             alt="Stability Bot MK1">
+      </div>
+
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Project Overview</h2>
+      </div>
+
+      <div class="card">
+
+        <p>
+          Stability Bot MK1 is a two-wheeled self-balancing robot designed to
+          balance itself using a PID loop.
+          The robot continuously measures body orientation using an inertial
+          measurement unit (IMU) and dynamically adjusts motor output to maintain
+          balance.
+        </p>
+
+        <p>
+          In the future, the project may serve as a platform for carrying objects,
+          following waypoints, or remote control.
+        </p>
+
+        <div class="image-container">
+          <img
+            src="../assets/Images/Stability_Bot_Overview.png"
+            alt="Robot Overview"
+            class="diagram-image"
+          >
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DESIGN GOALS -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Design Goals</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+          <h3>Control System Platform</h3>
+          <p>
+            Create a robotics firmware framework capable of implementing and testing
+            increasingly advanced control algorithms ranging from PID control
+            to future Kalman-filter-based state estimation, as well as manual control.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Rapid Iteration</h3>
+          <p>
+            Currently uses fully 3D printable components and modular electronics to allow
+            quick mechanical and firmware revisions during development.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HARDWARE -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Hardware Architecture</h2>
+      </div>
+
+      <div class="card">
+
+        <p>
+          The current prototype uses readily available components to validate
+          balancing performance before committing to a fully integrated PCB.
+          Future revisions will improve sensing accuracy, power delivery,
+          and system integration.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Subsystem</th>
+              <th>Current Prototype</th>
+              <th>Planned Upgrade</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>MCU</td>
+              <td>ESP32</td>
+              <td>ESP32 / TBD</td>
+            </tr>
+
+            <tr>
+              <td>IMU</td>
+              <td>MPU6050</td>
+              <td>BMI320</td>
+            </tr>
+
+            <tr>
+              <td>Motor Driver</td>
+              <td>L293D</td>
+              <td>TBD Higher-Efficiency Driver</td>
+            </tr>
+
+            <tr>
+              <td>Motors</td>
+              <td>TT Yellow Gear Motors</td>
+              <td>Current Motors</td>
+            </tr>
+
+            <tr>
+              <td>Power System</td>
+              <td>ELEGOO Battery Pack</td>
+              <td>3S LiPo Battery</td>
+            </tr>
+
+            <tr>
+              <td>Electronics</td>
+              <td>Modular Prototype Wiring</td>
+              <td>Custom Integrated PCB</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CAD -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>CAD Design Progression</h2>
+      </div>
+
+
+      <div class="grid-2">
+        <div class="card">
+            <h3>V1</h3>
+            <p>
+              The version one chassis was designed specifically for balancing performance.
+              A high center of mass was intentionally chosen to slow rotational
+              dynamics, making the robot easier to stabilize and tune.
+            </p>
+
+            <p>
+              The geometry remains simple and fully 3D printable while integrating
+              custom support structures and mounting features for future electronics
+              upgrades.
+            </p>
+
+            <div class="image-container">
+              <img
+                src="../assets/Images/Stability_Bot_CAD_V1.png"
+                alt="CAD Render"
+                class="project-image cad"
+              >
+            </div>
+
+        </div>
+          <div class="card">
+                      <h3>V2</h3>
+                      <p>
+                        *coming soon*
+                      </p>
+
+                      <p>
+                        The design will foocus on better integeration of electronics and sleeker form factor.
+                      </p>
+
+                      <div class="image-container">
+                        <img
+                          src="../assets/Images/Stability_Bot_CAD_V2.png"
+                          alt="CAD Render"
+                          class="project-image cad"
+                        >
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRMWARE -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Firmware Architecture</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+          <h3>Real-Time Control</h3>
+
+          <p>
+            FreeRTOS tasks separate sensor acquisition, state estimation,
+            motor control, and debugging functions. This architecture
+            improves maintainability while ensuring deterministic timing
+            for balancing operations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Control Loop</h3>
+
+          <p>
+            The balancing controller currently uses PID feedback derived
+            from IMU orientation estimates. Future revisions will explore
+            Kalman filtering and more advanced state-space approaches.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PCB -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>PCB & Schematic Development</h2>
+      </div>
+
+      <div class="card">
+
+        <p>
+          While the current prototype relies on modular electronics,
+          development has begun on dedicated PCB hardware. Initial work
+          focuses on validating BMI320 integration before designing a
+          fully integrated control board.
+        </p>
+
+        <p>
+          The final PCB is planned to consolidate sensing, motor control,
+          power distribution, and debugging interfaces into a single
+          compact assembly.
+        </p>
+
+        <div class="image-container">
+          <img
+            src="../assets/Images/StabilityBot_PCB.png"
+            alt="PCB Design"
+            class="diagram-image"
+          >
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEBUGGING -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Debugging & Challenges</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+          <h3>Noisy IMU data</h3>
+          <p>
+            Early hardware setups with the MPU6050 on a breadboard revealed
+            significant noise and instability in orientation estimates. After debugging and investigation,
+            the problem was traced to the unstable friction fit connections, poor sensor fusion algorithms, and 
+            insufficient filtering. These casued noise in stationary angle estimates and signal dropoff during movement, making the robot difficult to balance.
+
+          </p>
+
+
+
+              <p>
+                Before IMU filter tuning:
+              </p>
+            <div class="image-container">
+              <img
+              src="../assets/Images/Stability_Bot_noisy_signal.png"
+              alt="PCB Design"
+              class="diagram-image"
+              >
+            </div>
+
+
+              <p>
+                After:
+              </p>
+              <div class="image-container">
+                <img
+                  src="../assets/Images/Stability_Bot_stabilised_signal.png"
+                  alt="PCB Design"
+                  class="diagram-image"
+                >
+              </div>
+
+
+        </div>
+
+        <div class="card">
+          <h3>Signal Dropout</h3>
+
+          <p>
+            IMU readings would intermittently drop out during movement, causing the robot to lose balance.
+            This was traced back to 2 issues: <br>
+            1. Watchdog timer resets due to blocking code in the main loop, which was resolved by optimizing the control loop and adding a small delay. <br>
+            2. Unstable physical connections to the IMU, which will be resolved in future revisions with a custom PCB and improved mounting solutions.
+
+          </p>
+
+          <p>
+            See below an example of the signal dropout issue, where the IMU readings freeze during movement, causing the robot to lose balance.
+          </p>
+
+          <div class="image-container">
+            <img
+              src="../assets/Images/Stability_Bot_Signal_dropoff.png"
+              alt="PCB Design"
+              class="diagram-image"
+            >
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTING -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Testing Results</h2>
+      </div>
+
+      <div class="card">
+
+        <p>
+          Prototype testing focused on validating sensor acquisition,
+          motor control responsiveness, and control-loop stability.
+          Additional performance metrics will be added as tuning progresses.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Control Loop Rate</td>
+              <td>[Placeholder]</td>
+            </tr>
+
+            <tr>
+              <td>Balance Duration</td>
+              <td>[Placeholder]</td>
+            </tr>
+
+            <tr>
+              <td>IMU Sample Rate</td>
+              <td>[Placeholder]</td>
+            </tr>
+
+            <tr>
+              <td>Motor Response</td>
+              <td>[Placeholder]</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Testing Videos</h2>
+      </div>
+
+      <div class="card">
+
+        <p>
+          Videos documenting balancing tests, firmware development,
+          and prototype evolution.
+        </p>
+
+        <!-- Embed YouTube video or MP4 here -->
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FUTURE -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Future Improvements</h2>
+      </div>
+
+      <div class="card">
+
+        <ul>
+          <li>BMI320 integration and validation</li>
+          <li>Kalman filter implementation</li>
+          <li>Custom integrated PCB</li>
+          <li>Wireless tuning interface</li>
+          <li>Higher-performance motor driver</li>
+          <li>Higher-current battery system</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Embedded robotics and control systems project.</p>
+  </footer>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>STM32 Closed-Loop TENS Unit — Sohum Nigam</title>
-  <link rel="stylesheet" href="../assets/CSS/stm_tens_style.css">
+  <link rel="stylesheet" href="../assets/CSS/projects.css">
 </head>
 
 <body>
@@ -127,10 +127,17 @@
 
       <div class="card">
         <p>
-          PCB design is currently not in development. The initial prototype is being built on a breadboard for rapid iteration. Once the design stabilizes, I plan to transition to a custom PCB layout using KiCad, which will integrate the STM32 microcontroller, H-bridge driver, sense resistor, and necessary passive components into a compact form factor suitable for benchtop testing and eventual wearable use.
+          PCB design is currently centered around designing a high-voltage output H-Bridge stage board to replace the L293D in bench testing.
+          The design utilises two IR2110 high side and low side mosfet drivers and high voltage mosfets for efficient power delivery.
+          See the KiCad schematic below:
         </p>
 
-        <div class="placeholder-img">PCB layout coming soon</div>
+        <div class="image-container">
+          <img
+            src="../assets/Images/STMTENS_H-Bridge_Schematic.png"
+            alt="PCB Schematic"
+            class="diagram-image"
+          >
 
       </div>
 

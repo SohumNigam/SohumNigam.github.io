@@ -1,6 +1,6 @@
-/* =========================
+/* ==================================================
    GLOBAL
-========================= */
+================================================== */
 
 * {
   margin: 0;
@@ -19,9 +19,18 @@ body {
   line-height: 1.7;
 }
 
-/* =========================
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==================================================
    TYPOGRAPHY
-========================= */
+================================================== */
 
 h1,
 h2,
@@ -34,10 +43,6 @@ p {
   color: #94a3b8;
 }
 
-a {
-  text-decoration: none;
-}
-
 ul {
   margin-top: 18px;
   padding-left: 20px;
@@ -48,9 +53,9 @@ li {
   margin-bottom: 10px;
 }
 
-/* =========================
+/* ==================================================
    LAYOUT
-========================= */
+================================================== */
 
 .container {
   width: 90%;
@@ -62,9 +67,9 @@ section {
   padding: 90px 0;
 }
 
-/* =========================
-   NAV
-========================= */
+/* ==================================================
+   NAVIGATION
+================================================== */
 
 .project-nav {
   position: sticky;
@@ -107,20 +112,24 @@ section {
   font-size: 0.9rem;
 }
 
-/* =========================
+/* ==================================================
    HERO
-========================= */
+================================================== */
 
 .hero {
   padding: 120px 0;
 
   background:
-    radial-gradient(circle at top left,
+    radial-gradient(
+      circle at top left,
       rgba(59,130,246,0.15),
-      transparent 35%),
-    radial-gradient(circle at bottom right,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
       rgba(14,165,233,0.08),
-      transparent 30%),
+      transparent 30%
+    ),
     #0f1117;
 }
 
@@ -166,34 +175,29 @@ section {
 }
 
 .hero-image img {
-  display: block;
-
   width: 100%;
   max-width: 560px;
 
   aspect-ratio: 1 / 1;
-
   object-fit: cover;
 
   margin-inline: auto;
 
   border-radius: 26px;
-
   border: 1px solid #1e293b;
 
   box-shadow:
     0 25px 60px rgba(0,0,0,0.45);
 }
 
-/* =========================
+/* ==================================================
    TAGS
-========================= */
+================================================== */
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-
   margin-top: 32px;
 }
 
@@ -210,9 +214,9 @@ section {
   border: 1px solid rgba(255,255,255,0.04);
 }
 
-/* =========================
+/* ==================================================
    BUTTONS
-========================= */
+================================================== */
 
 .hero-buttons {
   display: flex;
@@ -258,9 +262,9 @@ section {
   background: #1e293b;
 }
 
-/* =========================
+/* ==================================================
    SECTIONS
-========================= */
+================================================== */
 
 .section-title {
   margin-bottom: 42px;
@@ -270,9 +274,9 @@ section {
   font-size: 2.3rem;
 }
 
-/* =========================
+/* ==================================================
    CARDS
-========================= */
+================================================== */
 
 .card {
   background: #161b22;
@@ -301,77 +305,83 @@ section {
   margin-top: 18px;
 }
 
-/* =========================
+/* ==================================================
    GRIDS
-========================= */
+================================================== */
 
 .grid-2 {
   display: grid;
-
   grid-template-columns:
     repeat(auto-fit, minmax(320px, 1fr));
-
   gap: 30px;
 }
 
 .grid-3 {
   display: grid;
-
   grid-template-columns:
     repeat(auto-fit, minmax(240px, 1fr));
-
   gap: 24px;
 }
 
-/* =========================
+/* ==================================================
    IMAGES
-========================= */
+================================================== */
 
-img {
-  display: block;
-}
+/* Modern image class */
 
-/* Standard content image */
+.project-image,
 
-.project-image {
+/* Backward compatibility */
+.diagram-image,
+.card img {
   width: 100%;
+
   border-radius: 16px;
+
   border: 1px solid #1e293b;
+
   background: #161b22;
+
   padding: 10px;
 
-  /* IMPORTANT: no hover effects */
   transition: none;
 }
 
-/* CAD / diagrams */
+/* Old diagram wrapper support */
 
-.project-image.interface {
-
-  aspect-ratio: auto;
-
-  object-fit: contain;
-
-  max-height: 700px;
-
-  background: #0b1120;
-
-  padding: 12px;
+.image-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
+
+/* CAD */
 
 .project-image.cad {
   object-fit: contain;
   padding: 14px;
   background: #0b1120;
+  width: auto;
 }
 
-/* Portrait images */
+/* UI Screenshots */
+
+.project-image.interface {
+  object-fit: contain;
+  max-height: 700px;
+  background: #0b1120;
+  padding: 12px;
+}
+
+/* Portrait photos */
 
 .project-image.portrait {
   aspect-ratio: 4 / 5;
 }
 
-/* Placeholder */
+/* ==================================================
+   PLACEHOLDER
+================================================== */
 
 .placeholder-img {
   width: 100%;
@@ -379,6 +389,7 @@ img {
   aspect-ratio: 16 / 9;
 
   margin-top: 28px;
+
   padding: 20px;
 
   border-radius: 20px;
@@ -405,9 +416,9 @@ img {
   letter-spacing: 0.08em;
 }
 
-/* =========================
-   TABLE
-========================= */
+/* ==================================================
+   TABLES
+================================================== */
 
 table {
   width: 100%;
@@ -431,9 +442,9 @@ td {
   color: #cbd5e1;
 }
 
-/* =========================
+/* ==================================================
    GALLERY
-========================= */
+================================================== */
 
 .gallery {
   gap: 24px;
@@ -462,9 +473,9 @@ td {
     0 14px 40px rgba(0,0,0,0.35);
 }
 
-/* =========================
+/* ==================================================
    RESOURCES
-========================= */
+================================================== */
 
 .resource-links {
   display: flex;
@@ -474,6 +485,7 @@ td {
 
 .resource-links a {
   background: #1e293b;
+
   color: white;
 
   padding: 13px 18px;
@@ -490,9 +502,9 @@ td {
   transform: translateY(-2px);
 }
 
-/* =========================
+/* ==================================================
    FOOTER
-========================= */
+================================================== */
 
 footer {
   padding: 60px 20px;
@@ -504,12 +516,11 @@ footer {
   color: #64748b;
 }
 
-/* =========================
+/* ==================================================
    RESPONSIVE
-========================= */
+================================================== */
 
 @media (max-width: 900px) {
-
   .hero {
     padding: 90px 0;
   }
@@ -521,11 +532,9 @@ footer {
   .hero-text h1 {
     font-size: 3rem;
   }
-
 }
 
 @media (max-width: 768px) {
-
   section {
     padding: 70px 0;
   }
@@ -541,5 +550,4 @@ footer {
   .gallery img {
     aspect-ratio: 4 / 3;
   }
-
 }
